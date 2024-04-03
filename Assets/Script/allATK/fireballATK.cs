@@ -9,6 +9,7 @@ public class fireballATK : MonoBehaviour
     private Animator animator;
     private BoxCollider2D boxCollider;
 
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -26,6 +27,11 @@ public class fireballATK : MonoBehaviour
         hit = true;
         boxCollider.enabled = false;
         animator.SetTrigger("exp");
+
+        if (collision.tag == "RangeEnemy" || collision.tag == "MeleeEnemy" || collision.tag == "Boss") 
+        {
+            collision.GetComponent<Health>().TakeDamage(2);
+        }
     }
     //Set direction of fireball(left or right)
     public void SetDirection(float _direction)

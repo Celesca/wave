@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 26
-  productGUID: 3dea38d4cd0f7ea4189f6b522761763d
+  productGUID: 07009c711ea5b5942b1e9b83809e228c
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: HumNoy
+  productName: TestBoss
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -591,14 +591,14 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: HumNoy
+  metroPackageName: TestBoss
   metroPackageVersion: 
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
-  metroApplicationDescription: HumNoy
+  metroApplicationDescription: TestBoss
   wsaImages: {}
   metroTileShortName: 
   metroTileShowName: 0
@@ -666,11 +666,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 5f962b1b-6f41-4134-b01b-467656939fd2
+  cloudProjectId: 46a21c9f-f0a8-4de8-8692-a81a6f42fc51
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: HumNoy
-  organizationId: mrwinrock
+  projectName: TestBoss
+  organizationId: lovernoey
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}

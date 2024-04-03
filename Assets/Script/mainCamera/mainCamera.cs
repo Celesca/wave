@@ -2,26 +2,14 @@ using UnityEngine;
 
 public class mainCamera : MonoBehaviour
 {
-    public Transform target;
-    public Transform target2;
-    public Transform target3;
-    public float smoothing;
-    public Vector3 offset;
-    public Vector2 maxPos;
-    public Vector2 minPos;
+    public Transform player;
+    public Vector3 offset;//���С���ͧ��繼�����
 
-    private void FixedUpdate()
-    { 
-        if (transform.position.x != target2.position.x)
-        {
-            float targetX = target2.position.x;
-            float targetY = transform.position.y; // ใช้ค่า y ของกล้องเอง
-            float targetZ = transform.position.z; // ใช้ค่า z ของกล้องเอง
-
-            targetX = Mathf.Clamp(targetX, minPos.x, maxPos.x);
-
-            Vector3 targetPos = new Vector3(targetX, targetY, targetZ);
-            transform.position = Vector3.Lerp(transform.position, targetPos, smoothing);
-        }
+    void Update()
+    {
+            transform.position = new Vector3(//���˹觡��ͧ
+            player.position.x +  offset.x,
+            offset.y,
+            offset.z);
     }
 }

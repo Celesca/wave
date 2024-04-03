@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class playerATK : MonoBehaviour
 {
@@ -10,30 +10,25 @@ public class playerATK : MonoBehaviour
     [SerializeField] private Transform skillPoint;
     [SerializeField] private GameObject[] skillFires;
 
-    //SoundEffect
-    [SerializeField] private AudioSource AtkSoundEffect;
-
     private Animator anim;
-    private playerMovement playerMovement;
+    private playerMovement PlayerMovement;
+    private float skillCooldown;
 
     private float cooldowntimer = Mathf.Infinity;
 
-    private bool isSkillCooldown;
-    private float skillCooldown;
-    private int countSkillATK;
+    private bool isSkillCooldown = false;
+    private static int countSkillATK = 0;
 
     private void Awake()
     {
         anim = GetComponent<Animator>();
-        playerMovement = GetComponent<playerMovement>();
+        PlayerMovement = GetComponent<playerMovement>();
     }
     private void Update()
     {
-        if (Input.GetKey(KeyCode.X) && atkCooldown < cooldowntimer)
-        {
-            AtkSoundEffect.Play();
+        if ((Input.GetKey(KeyCode.X) || Input.GetMouseButton(0)) && atkCooldown < cooldowntimer)
             Atk();
-        }
+
         if (Input.GetKey(KeyCode.Z) && skillAtkCooldown < cooldowntimer)
         {
 
@@ -70,6 +65,7 @@ public class playerATK : MonoBehaviour
 
     }
 
+
     //normalATK stop atk 
     private void Atk()
     {
@@ -82,7 +78,7 @@ public class playerATK : MonoBehaviour
     //Many fireball
     private int FindFireball()
     {
-        for (int i = 0; i < fireballs.Length; i++)
+        for(int i = 0; i<fireballs.Length; i++)
         {
             if (!fireballs[i].activeInHierarchy)
                 return i;
@@ -93,8 +89,8 @@ public class playerATK : MonoBehaviour
     private void skillATK()
     {
         anim.SetTrigger("atk");
-        cooldowntimer = 0;
-
+        countSkillATK = 0;
+        
         skillFires[FindSkill()].transform.position = skillPoint.position;
         skillFires[FindSkill()].GetComponent<skillFire>().setDirection(Mathf.Sign(transform.localScale.x));
     }
@@ -109,3 +105,4 @@ public class playerATK : MonoBehaviour
         return 0;
     }
 }
+
