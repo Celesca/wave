@@ -46,7 +46,7 @@ public class GameManagerScript : MonoBehaviour
     public void MainMenuButton()
     {
         // go to main menu button after die
-        SceneManager.LoadScene(currentScene.buildIndex); // Load the current scene by its build index
+        SceneManager.LoadScene(currentScene.buildIndex); // wait for mainmenu scene
     }
 
     private IEnumerator WaitForRestartCanvasEnd()
