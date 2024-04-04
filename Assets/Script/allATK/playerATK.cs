@@ -22,6 +22,11 @@ public class playerATK : MonoBehaviour
     private float skillCooldown;
     private int countSkillATK;
 
+
+    //tranform position Y if Crouch
+    private float y = -2.26f;
+
+
     private void Awake()
     {
         anim = GetComponent<Animator>();
@@ -29,6 +34,11 @@ public class playerATK : MonoBehaviour
     }
     private void Update()
     {
+        //position point if crouch
+        firepointPosition();
+        skillpointPosition();
+
+
         if (Input.GetKey(KeyCode.X) && atkCooldown < cooldowntimer)
         {
             AtkSoundEffect.Play();
@@ -68,6 +78,36 @@ public class playerATK : MonoBehaviour
 
         }
 
+    }
+    private void FixedUpdate()
+    {
+
+    }
+
+    //position point
+    //firepoint
+    private void firepointPosition()
+    {
+        if (Input.GetKey(KeyCode.DownArrow) && playerMovement.isGrounded() && playerMovement.isCrouch)
+        {
+            firepoint.position = new Vector3(firepoint.position.x, -2.85f, firepoint.position.z);
+        }
+        else if (playerMovement.isCrouch == false && playerMovement.isGrounded())
+        {
+            firepoint.position = new Vector3(firepoint.position.x, y, firepoint.position.z);
+        }
+    }
+    //skillpoint
+    private void skillpointPosition()
+    {
+        if (Input.GetKey(KeyCode.DownArrow) && playerMovement.isGrounded() && playerMovement.isCrouch)
+        {
+            skillPoint.position = new Vector3(skillPoint.position.x, -2.85f, skillPoint.position.z);
+        }
+        else if (playerMovement.isCrouch == false && playerMovement.isGrounded())
+        {
+            skillPoint.position = new Vector3(skillPoint.position.x, y, skillPoint.position.z);
+        }
     }
 
     //normalATK stop atk 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class playerMovement : MonoBehaviour
 {
-    
+
     [SerializeField] private float speed;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private LayerMask wallLayer;
@@ -15,6 +15,10 @@ public class playerMovement : MonoBehaviour
     [SerializeField] private AudioSource swapWeaponSoundEffect;
     [SerializeField] private AudioSource DashSoundEffect;
 
+
+
+
+
     //fixUpdate for dash
     [HideInInspector] public Vector2 movementInput;
     [HideInInspector] public float acceleration;
@@ -22,13 +26,16 @@ public class playerMovement : MonoBehaviour
     public float normalAcceleration;
 
     private float horizontalInput;
-    private bool grounded;
+    public bool grounded;
 
     public bool isCrouch = false;
 
-    private BoxCollider2D boxCollider;
-    private Animator anim; 
+    public BoxCollider2D boxCollider;
+    private Animator anim;
     private Rigidbody2D body;
+
+    public bool test = false;
+    private GameObject go;
 
     // Dash Feature
     private bool canDash = true;
@@ -41,7 +48,7 @@ public class playerMovement : MonoBehaviour
     bool jump = true;
 
     //For swap weapon
-    int currentSwap;
+    public int currentSwap;
 
     private void Awake()
     {
@@ -49,19 +56,38 @@ public class playerMovement : MonoBehaviour
         anim = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
 
+        go = GetComponent<GameObject>();
+
         acceleration = normalAcceleration;
     }
     private void Update()
-    { 
-        
+    {
+
         //Walk Left or right
-            horizontalInput = Input.GetAxis("Horizontal");
-            body.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, body.velocity.y); 
+        horizontalInput = Input.GetAxis("Horizontal");
+        body.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, body.velocity.y);
+
+
         
+
+/**
+        if(horizontalInput != 0 && grounded)
+        {
+            anim.SetBool("run", true);
+
+            if(isCrouch) 
+            {
+                anim.SetBool("run", false);
+                crouch();
+            }
+        }
+**/
+
+
         //flip and Change Scale
-        if(horizontalInput > 0.01f ) 
-            transform.localScale = new Vector3(1,1,1);
-        else if(horizontalInput < -0.01f)
+        if (horizontalInput > 0.01f)
+            transform.localScale = new Vector3(1, 1, 1);
+        else if (horizontalInput < -0.01f)
             transform.localScale = new Vector3(-1, 1, 1);
 
         if (isDashing)
@@ -92,25 +118,41 @@ public class playerMovement : MonoBehaviour
             swapWeapon();
         }
 
+        if (boxCollider.gameObject.tag == "Augment")
+        {
+            test = true;
+        }
+
+
 
         //Set yVelocity
         anim.SetFloat("yVelocity", body.velocity.y);
 
         //Animation run
-        
-        anim.SetBool("run", horizontalInput != 0 && grounded);
+
+        anim.SetBool("run", horizontalInput != 0  &&  grounded);
         anim.SetBool("grounded", grounded);
+
+        
     }
 
 
-
+    //Check anim working
+    bool isPlaying(Animator anim, string stateName)
+    {
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName(stateName) &&
+                anim.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f)
+            return true;
+        else
+            return false;
+    }
 
 
     //FixUpdate
     private void FixedUpdate()
     {
         movementInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        body.velocity += movementInput * acceleration * Time.fixedDeltaTime; 
+        body.velocity += movementInput * acceleration * Time.fixedDeltaTime;
     }
 
 
@@ -127,7 +169,7 @@ public class playerMovement : MonoBehaviour
     //onGround
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Ground")
+        if (collision.gameObject.tag == "Ground")
             grounded = true;
     }
 
@@ -135,20 +177,21 @@ public class playerMovement : MonoBehaviour
     public bool isGrounded()
     {
         RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.1f, groundLayer);
-            return raycastHit.collider != null;
+        return raycastHit.collider != null;
     }
 
     //wall
     private bool onWall()
     {
-        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, new Vector2(transform.localScale.x,0), 0.1f, wallLayer);
+        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, new Vector2(transform.localScale.x, 0), 0.1f, wallLayer);
         return raycastHit.collider != null;
     }
 
     //Crouch
     public void crouch()
     {
-        if(Input.GetKey(KeyCode.DownArrow)) {
+        if (Input.GetKey(KeyCode.DownArrow))
+        {
             isCrouch = true;
         }
         else
@@ -178,7 +221,7 @@ public class playerMovement : MonoBehaviour
     //swap weapon
     void swapWeapon()
     {
-        if(currentSwap == 0)
+        if (currentSwap == 0)
         {
             currentSwap += 1;
             anim.SetLayerWeight(currentSwap - 1, 0);
@@ -191,4 +234,5 @@ public class playerMovement : MonoBehaviour
             anim.SetLayerWeight(currentSwap, 1);
         }
     }
+
 }
