@@ -15,10 +15,6 @@ public class playerMovement : MonoBehaviour
     [SerializeField] private AudioSource swapWeaponSoundEffect;
     [SerializeField] private AudioSource DashSoundEffect;
 
-
-
-
-
     //fixUpdate for dash
     [HideInInspector] public Vector2 movementInput;
     [HideInInspector] public float acceleration;
@@ -68,22 +64,6 @@ public class playerMovement : MonoBehaviour
         body.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, body.velocity.y);
 
 
-        
-
-/**
-        if(horizontalInput != 0 && grounded)
-        {
-            anim.SetBool("run", true);
-
-            if(isCrouch) 
-            {
-                anim.SetBool("run", false);
-                crouch();
-            }
-        }
-**/
-
-
         //flip and Change Scale
         if (horizontalInput > 0.01f)
             transform.localScale = new Vector3(1, 1, 1);
@@ -100,7 +80,6 @@ public class playerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
         {
             Debug.Log("Dash");
-            DashSoundEffect.Play();
             StartCoroutine(Dash());
         }
 
@@ -124,7 +103,6 @@ public class playerMovement : MonoBehaviour
         }
 
 
-
         //Set yVelocity
         anim.SetFloat("yVelocity", body.velocity.y);
 
@@ -137,25 +115,12 @@ public class playerMovement : MonoBehaviour
     }
 
 
-    //Check anim working
-    bool isPlaying(Animator anim, string stateName)
-    {
-        if (anim.GetCurrentAnimatorStateInfo(0).IsName(stateName) &&
-                anim.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f)
-            return true;
-        else
-            return false;
-    }
-
-
     //FixUpdate
     private void FixedUpdate()
     {
         movementInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         body.velocity += movementInput * acceleration * Time.fixedDeltaTime;
     }
-
-
 
 
     //jump
@@ -166,12 +131,14 @@ public class playerMovement : MonoBehaviour
         grounded = false;
     }
 
+
     //onGround
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Ground")
             grounded = true;
     }
+
 
     //ground
     public bool isGrounded()
@@ -180,12 +147,14 @@ public class playerMovement : MonoBehaviour
         return raycastHit.collider != null;
     }
 
+
     //wall
     private bool onWall()
     {
         RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, new Vector2(transform.localScale.x, 0), 0.1f, wallLayer);
         return raycastHit.collider != null;
     }
+
 
     //Crouch
     public void crouch()
@@ -201,9 +170,11 @@ public class playerMovement : MonoBehaviour
         anim.SetBool("crouch", isCrouch);
     }
 
+
     //Dash
     private IEnumerator Dash()
     {
+        DashSoundEffect.Play();
         canDash = false;
         isDashing = true;
         float originalGravity = body.gravityScale;
@@ -216,7 +187,9 @@ public class playerMovement : MonoBehaviour
         isDashing = false;
         yield return new WaitForSeconds(dashCooldown);
         canDash = true;
+        
     }
+
 
     //swap weapon
     void swapWeapon()
