@@ -79,8 +79,8 @@ public class playerMovement : MonoBehaviour
         //Dash
         if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
         {
-            Debug.Log("Dash");
-            StartCoroutine(Dash());
+                Debug.Log("Dash");
+                StartCoroutine(Dash());
         }
 
         //Jump
@@ -197,14 +197,34 @@ public class playerMovement : MonoBehaviour
         if (currentSwap == 0)
         {
             currentSwap += 1;
-            anim.SetLayerWeight(currentSwap - 1, 0);
-            anim.SetLayerWeight(currentSwap, 1);
+            anim.SetLayerWeight(0, 0);
+            anim.SetLayerWeight(1, 1);
+            anim.SetLayerWeight(2, 0);
+            anim.SetLayerWeight(3, 0);
         }
-        else
+        else if(currentSwap == 1)
         {
-            currentSwap -= 1;
-            anim.SetLayerWeight(currentSwap + 1, 0);
-            anim.SetLayerWeight(currentSwap, 1);
+            currentSwap += 1;
+            anim.SetLayerWeight(1, 0);
+            anim.SetLayerWeight(0, 0);
+            anim.SetLayerWeight(2, 1);
+            anim.SetLayerWeight(3, 0);
+        }
+        else if (currentSwap == 2)
+        {
+            currentSwap += 1;
+            anim.SetLayerWeight(2, 0);
+            anim.SetLayerWeight(1, 0);
+            anim.SetLayerWeight(0, 0);
+            anim.SetLayerWeight(3, 1);
+        }
+        else if (currentSwap == 3)
+        {
+            currentSwap -= 3;
+            anim.SetLayerWeight(3, 0);
+            anim.SetLayerWeight(2, 0);
+            anim.SetLayerWeight(1, 0);
+            anim.SetLayerWeight(0, 0);
         }
     }
 
