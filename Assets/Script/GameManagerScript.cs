@@ -14,7 +14,6 @@ public class GameManagerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("GMS Start");
         currentScene = SceneManager.GetActiveScene(); // Get the current scene
     }
 
