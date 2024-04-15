@@ -101,4 +101,16 @@ public class Health : MonoBehaviour
         }
         Physics2D.IgnoreLayerCollision(1, 0, false); // Layer number Player and Enemy
     }
+
+    public void addHealth()
+    {
+        startingHealth += 1;
+        Debug.Log("Heal");
+    }
+
+    public void addArmor()
+    {
+        armor += 1;
+        Debug.Log("Add Armor");
+    }
 }
