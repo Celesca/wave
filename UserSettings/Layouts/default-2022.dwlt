@@ -74,7 +74,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 17
+  controlID: 27
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -478,7 +478,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Script/Augment
+    - Assets/Script/allMovement
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -486,15 +486,15 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Script/Augment
+  - Assets/Script/allMovement
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\UnityProject\wave
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 5c770000
-    m_LastClickedID: 30556
+    m_SelectedIDs: 5a770000
+    m_LastClickedID: 30554
     m_ExpandedIDs: 00000000c0750000c2750000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1059,9 +1059,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 5.81553, y: 0.89159346, z: -1.0603652}
+    m_Target: {x: 5.529742, y: 0.9766917, z: -1.0634571}
     speed: 2
-    m_Value: {x: 5.81553, y: 0.89159346, z: -1.0603652}
+    m_Value: {x: 5.529742, y: 0.9766917, z: -1.0634571}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1111,9 +1111,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 6.8708906
+    m_Target: 7.180081
     speed: 2
-    m_Value: 6.8708906
+    m_Value: 7.180081
   m_Ortho:
     m_Target: 1
     speed: 2

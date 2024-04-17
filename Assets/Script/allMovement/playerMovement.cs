@@ -1,4 +1,6 @@
+using System;
 using System.Collections;
+using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -14,10 +16,6 @@ public class playerMovement : MonoBehaviour
     [SerializeField] private AudioSource JumpSoundEffect;
     [SerializeField] private AudioSource swapWeaponSoundEffect;
     [SerializeField] private AudioSource DashSoundEffect;
-
-
-
-
 
     //fixUpdate for dash
     [HideInInspector] public Vector2 movementInput;
@@ -50,6 +48,10 @@ public class playerMovement : MonoBehaviour
     //For swap weapon
     public int currentSwap;
 
+    // Double Jump Call
+    private bool isDoubleJump = false;
+    private bool canDoubleJump;
+
     private void Awake()
     {
         body = GetComponent<Rigidbody2D>();
@@ -68,20 +70,20 @@ public class playerMovement : MonoBehaviour
         body.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, body.velocity.y);
 
 
-        
 
-/**
-        if(horizontalInput != 0 && grounded)
-        {
-            anim.SetBool("run", true);
 
-            if(isCrouch) 
-            {
-                anim.SetBool("run", false);
-                crouch();
-            }
-        }
-**/
+        /**
+                if(horizontalInput != 0 && grounded)
+                {
+                    anim.SetBool("run", true);
+
+                    if(isCrouch) 
+                    {
+                        anim.SetBool("run", false);
+                        crouch();
+                    }
+                }
+        **/
 
 
         //flip and Change Scale
@@ -104,12 +106,36 @@ public class playerMovement : MonoBehaviour
             StartCoroutine(Dash());
         }
 
-        //Jump
-        if ((Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.Space)) && grounded)
+        // Jump
+        if (isDoubleJump)
         {
-            JumpSoundEffect.Play();
-            Jump();
+            // Check if player is in the air (for double jump)
+            if (isGrounded() && !Input.GetKey(KeyCode.Space))
+            {
+                canDoubleJump = false;
+            }
+            // double jump
+            if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space))
+            {
+                if (isGrounded() || canDoubleJump)
+                {
+                    JumpSoundEffect.Play();
+                    Jump();
+
+                    canDoubleJump = !canDoubleJump;
+                }
+            }
         }
+        else
+        {
+            // Normal jump
+            if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space)) && isGrounded())
+            {
+                JumpSoundEffect.Play();
+                Jump();
+            }
+        }
+
 
         //Swap weapon
         if (Input.GetKeyDown(KeyCode.C))
@@ -123,17 +149,15 @@ public class playerMovement : MonoBehaviour
             test = true;
         }
 
-
-
         //Set yVelocity
         anim.SetFloat("yVelocity", body.velocity.y);
 
         //Animation run
 
-        anim.SetBool("run", horizontalInput != 0  &&  grounded);
+        anim.SetBool("run", horizontalInput != 0 && grounded);
         anim.SetBool("grounded", grounded);
 
-        
+
     }
 
 
@@ -170,7 +194,10 @@ public class playerMovement : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Ground")
+        {
             grounded = true;
+        }
+
     }
 
     //ground
@@ -235,4 +262,9 @@ public class playerMovement : MonoBehaviour
         }
     }
 
+    public void enableDoubleJump()
+    {
+        isDoubleJump = true;
+        Debug.Log("Double Jump Enable");
+    }
 }
