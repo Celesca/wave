@@ -45,7 +45,8 @@ public class AugmentController : MonoBehaviour
         {
             Debug.Log("Collided with: " + collision.gameObject.name);
             chooseAugment();
-            gameManager.ChooseAugmentUI(aug1.number, aug2.number, aug3.number);
+            Augment chosenAugment = gameManager.GetSelectedAugment(aug1, aug2, aug3);
+            PerformAction(chosenAugment);
             Destroy(collision.gameObject); // Destroy Augment Box after enter
         }
     }
