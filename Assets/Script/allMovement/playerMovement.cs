@@ -265,6 +265,5 @@ public class playerMovement : MonoBehaviour
     public void enableDoubleJump()
     {
         isDoubleJump = true;
-        Debug.Log("Double Jump Enable");
     }
 }

@@ -8,8 +8,10 @@ public class GameManagerScript : MonoBehaviour
 {
     public GameObject gameOverUI;
     public GameObject RestartUI;
+    public GameObject AugmentUI;
 
     private Scene currentScene; // Declare the currentScene variable here
+
 
     // Start is called before the first frame update
     void Start()
@@ -53,5 +55,33 @@ public class GameManagerScript : MonoBehaviour
         // WaitForSeconds() <-- die animation lenght
         yield return new WaitForSeconds(0.64f);
         RestartClickedUI();
+    }
+
+    public void ChooseAugmentUI(int aug1, int aug2, int aug3)
+    {
+        Time.timeScale = 0;
+        AugmentUI.SetActive(true);
+
+    }
+
+    public void Augment1()
+    {
+        Debug.Log("Augment 1 Clicked");
+        AugmentUI.SetActive(false);
+        Time.timeScale = 1;
+    }
+
+    public void Augment2()
+    {
+        Debug.Log("Augment 2 Clicked");
+        AugmentUI.SetActive(false);
+        Time.timeScale = 1;
+    }
+
+    public void Augment3()
+    {
+        Debug.Log("Augment 3 Clicked");
+        AugmentUI.SetActive(false);
+        Time.timeScale = 1;
     }
 }

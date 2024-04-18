@@ -103,15 +103,13 @@ public class Health : MonoBehaviour
     }
 
     // Augment Call
-    public void addHealth()
+    public void healthBoost()
     { 
-        currentHealth += 3;
-        Debug.Log("Heal");
+        currentHealth += 1;
     }
 
-    public void addArmor()
+    public void armorBoost()
     {
-        armor += 1;
-        Debug.Log("Add Armor");
+        armor = 1;
     }
 }
