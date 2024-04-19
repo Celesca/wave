@@ -5,18 +5,6 @@ using System.Runtime.InteropServices;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class Augment
-{
-    public enum Type { Player, Weapon }
-    public Type augmentType;
-    public int number;
-
-    public Augment(Type type, int num)
-    {
-        augmentType = type;
-        number = num;
-    }
-}
 
 public class AugmentController : MonoBehaviour
 {
@@ -24,9 +12,9 @@ public class AugmentController : MonoBehaviour
     playerMovement move;
     GameManagerScript gameManager;
 
-    private Augment aug1;
-    private Augment aug2;
-    private Augment aug3;
+    private int aug1;
+    private int aug2;
+    private int aug3;
 
     // Random Augment
     private int[] allAugmentNumbers = { 1, 2, 3, 4, 5, 6, 7, 8 };
@@ -45,39 +33,30 @@ public class AugmentController : MonoBehaviour
         {
             Debug.Log("Collided with: " + collision.gameObject.name);
             chooseAugment();
-            Augment chosenAugment = gameManager.GetSelectedAugment(aug1, aug2, aug3);
-            PerformAction(chosenAugment);
+            // Bug
+            PerformAction(gameManager.GetSelectedAugment(aug1, aug2, aug3));
             Destroy(collision.gameObject); // Destroy Augment Box after enter
         }
     }
 
     private void chooseAugment()
     {
-        Augment[] augments = GenerateAugment();
+        int[] augmentNumbers = GenerateAugmentNumbers();
 
-        aug1 = augments[0];
-        aug2 = augments[1];
-        aug3 = augments[2];
-        Debug.Log($"Random Augments: {aug1.number}, {aug2.number}, {aug3.number}");
+        aug1 = augmentNumbers[0];
+        aug2 = augmentNumbers[1];
+        aug3 = augmentNumbers[2];
+        Debug.Log($"Random Augments: {aug1}, {aug2}, {aug3}");
     }
 
-    private Augment[] GenerateAugment()
+    private int[] GenerateAugmentNumbers()
     {
         ShuffleArray(allAugmentNumbers);
 
         int[] selectedNumbers = new int[3];
         Array.Copy(allAugmentNumbers, selectedNumbers, 3);
 
-        Augment[] augments = new Augment[3];
-
-        for (int i = 0; i < 3; i++)
-        {
-            int augmentNumber = allAugmentNumbers[i];
-            Augment.Type augmentType = (augmentNumber <= 4) ? Augment.Type.Player : Augment.Type.Weapon;
-            augments[i] = new Augment(augmentType, augmentNumber);
-        }
-
-        return augments;
+        return selectedNumbers;
     }
 
     private void ShuffleArray(int[] array)
@@ -91,67 +70,88 @@ public class AugmentController : MonoBehaviour
         }
     }
 
-    private void PerformAction(Augment augment)
+    private void DeleteSelectedAugment(int num)
     {
-        switch (augment.augmentType)
+
+    }
+
+    private void PerformAction(int augment)
+    {
+        switch (augment)
         {
-            case Augment.Type.Player:
-                switch (augment.number)
-                {
-                    case 1:
-                        Debug.Log("Health Boost");
-                        healthBoost();
-                        break;
-                    case 2:
-                        Debug.Log("Armor Boost");
-                        armorBoost();
-                        break;
-                    case 3:
-                        Debug.Log("Double Jump");
-                        doubleJump();
-                        break;
-                    case 4:
-                        Debug.Log("Anti-Projectile");
-                        //
-                        break;
-                }
+            case 1:
+                healthBoost();
                 break;
-            case Augment.Type.Weapon:
-                switch (augment.number)
-                {
-                    case 5:
-                        Debug.Log("Cold Water Gun");
-                        //
-                        break;
-                    case 6:
-                        Debug.Log("Burning Water Gun");
-                        //
-                        break;
-                    case 7:
-                        Debug.Log("Toxic Water Gun");
-                        //
-                        break;
-                    case 8:
-                        Debug.Log("Cooldown Reset");
-                        //
-                        break;
-                }
+            case 2:
+                armorBoost();
                 break;
+            case 3:
+                doubleJump();
+                break;
+            case 4:
+                antiProjectile();
+                break;
+            case 5:
+                coldWaterGun();
+                break;
+            case 6:
+                burningWaterGun();
+                break;
+            case 7:
+                toxicWaterGun();
+                break;
+            case 8:
+                cooldownReset();
+                break;
+
         }
     }
 
     private void healthBoost()
     {
+        Debug.Log("Health Boost");
         health.healthBoost();
     }
 
     private void armorBoost()
     {
+        Debug.Log("Armor Boost");
         health.armorBoost();
     }
 
     private void doubleJump()
     {
+        Debug.Log("Double Jump");
         move.enableDoubleJump();
+    }
+
+    private void antiProjectile()
+    {
+        Debug.Log("Anti-Projectile");
+        //
+    }
+
+    private void coldWaterGun()
+    {
+        Debug.Log("Cold Water Gun");
+        //
+    }
+
+    private void burningWaterGun()
+    {
+        Debug.Log("Burning Water Gun");
+        //
+    }
+
+    private void toxicWaterGun()
+    {
+        Debug.Log("Toxic Water Gun");
+        //
+    }
+
+    private void cooldownReset()
+    {
+        Debug.Log("Cooldown Reset");
+        //
     }
 }

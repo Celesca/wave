@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Threading;
 
 public class GameManagerScript : MonoBehaviour
 {
@@ -11,15 +12,16 @@ public class GameManagerScript : MonoBehaviour
     public GameObject AugmentUI;
 
     private bool isGamePaused = false;
+    private bool isUIAnimationPaused = false;
 
-    Augment selectedAugment = null;
-
+    int selectedAugment = -1;
     private bool isAug1 = false;
     private bool isAug2 = false;
     private bool isAug3 = false;
 
     private Scene currentScene; // Declare the currentScene variable here
 
+    AugmentImg augImg;
 
     // Start is called before the first frame update
     void Start()
@@ -74,10 +76,9 @@ public class GameManagerScript : MonoBehaviour
         Time.timeScale = isGamePaused ? 0 : 1;
     }
 
-    private void PauseGame()
+    private void PauseGame(bool pause)
     {
-        isGamePaused = true;
-        Time.timeScale = 0;
+        Time.timeScale = pause ? 0 : 1;
     }
 
     private void ResumeGame()
@@ -86,10 +87,9 @@ public class GameManagerScript : MonoBehaviour
         Time.timeScale = 1;
     }
 
-    public void ChooseAugmentUI(Augment aug1, Augment aug2, Augment aug3)
+    public void ChooseAugmentUI(int aug1, int aug2, int aug3)
     {
-        PauseGame();
-        AugmentUI.SetActive(true);
+
         if (isAug1)
         {
             selectedAugment = aug1;
@@ -104,33 +104,49 @@ public class GameManagerScript : MonoBehaviour
         }
     }
 
-    public Augment GetSelectedAugment(Augment aug1, Augment aug2, Augment aug3)
+    public int GetSelectedAugment(int aug1, int aug2, int aug3)
     {
+        AugmentUI.SetActive(true);
+        augImg.matchImages(aug1, aug2, aug3);
+
+        ResetAugmentSelection();
         ChooseAugmentUI(aug1, aug2, aug3);
+
+        if (selectedAugment == -1)
+        {
+            Debug.LogWarning("No augment was selected.");
+        }
+
         return selectedAugment;
+    }
+
+    private void ResetAugmentSelection()
+    {
+        isAug1 = false;
+        isAug2 = false;
+        isAug3 = false;
     }
 
     public void Augment1()
     {
-        Debug.Log("Augment 1 Clicked");
+        ResetAugmentSelection();
         isAug1 = true;
         AugmentUI.SetActive(false);
-        ResumeGame();
     }
 
     public void Augment2()
     {
-        Debug.Log("Augment 2 Clicked");
+        ResetAugmentSelection();
         isAug2 = true;
         AugmentUI.SetActive(false);
-        ResumeGame();
     }
 
     public void Augment3()
     {
-        Debug.Log("Augment 3 Clicked");
+        ResetAugmentSelection();
         isAug3 = true;
         AugmentUI.SetActive(false);
-        ResumeGame();
     }
+
+
 }

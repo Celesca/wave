@@ -105,7 +105,8 @@ public class Health : MonoBehaviour
     // Augment Call
     public void healthBoost()
     { 
-        currentHealth += 1;
+        startingHealth = 4;
+        currentHealth = 4;
     }
 
     public void armorBoost()
