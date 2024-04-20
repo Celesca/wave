@@ -19,6 +19,10 @@ public class GameManagerScript : MonoBehaviour
     private bool isAug2 = false;
     private bool isAug3 = false;
 
+    private int aug1Value;
+    private int aug2Value;
+    private int aug3Value;
+
     private Scene currentScene; // Declare the currentScene variable here
 
     AugmentImg augImg;
@@ -89,6 +93,9 @@ public class GameManagerScript : MonoBehaviour
 
     public void ChooseAugmentUI(int aug1, int aug2, int aug3)
     {
+        aug1Value = aug1;
+        aug2Value = aug2;
+        aug3Value = aug3;
 
         if (isAug1)
         {
@@ -107,7 +114,7 @@ public class GameManagerScript : MonoBehaviour
     public int GetSelectedAugment(int aug1, int aug2, int aug3)
     {
         AugmentUI.SetActive(true);
-        augImg.matchImages(aug1, aug2, aug3);
+        augImg.setAllImage(aug1, aug2, aug3);
 
         ResetAugmentSelection();
         ChooseAugmentUI(aug1, aug2, aug3);
@@ -122,6 +129,7 @@ public class GameManagerScript : MonoBehaviour
 
     private void ResetAugmentSelection()
     {
+        selectedAugment = -1;
         isAug1 = false;
         isAug2 = false;
         isAug3 = false;
@@ -132,6 +140,7 @@ public class GameManagerScript : MonoBehaviour
         ResetAugmentSelection();
         isAug1 = true;
         AugmentUI.SetActive(false);
+        selectedAugment = aug1Value;
     }
 
     public void Augment2()
@@ -139,6 +148,7 @@ public class GameManagerScript : MonoBehaviour
         ResetAugmentSelection();
         isAug2 = true;
         AugmentUI.SetActive(false);
+        selectedAugment = aug2Value;
     }
 
     public void Augment3()
@@ -146,6 +156,7 @@ public class GameManagerScript : MonoBehaviour
         ResetAugmentSelection();
         isAug3 = true;
         AugmentUI.SetActive(false);
+        selectedAugment = aug3Value;
     }
 
 
