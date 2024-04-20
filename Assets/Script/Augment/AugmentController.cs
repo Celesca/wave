@@ -5,7 +5,6 @@ using System.Runtime.InteropServices;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-
 public class AugmentController : MonoBehaviour
 {
     Health health;
@@ -32,14 +31,15 @@ public class AugmentController : MonoBehaviour
         if (collision.gameObject.CompareTag("AugmentBox"))
         {
             Debug.Log("Collided with: " + collision.gameObject.name);
-            chooseAugment();
+            getAugment();
             // Bug
-            PerformAction(gameManager.GetSelectedAugment(aug1, aug2, aug3));
+            //Debug.Log("Send 3 numbers to GameManagerScript in AugmentController: " + gameManager.GetSelectedAugment(aug1, aug2, aug3));
+            gameManager.GetSelectedAugment(aug1, aug2, aug3);
             Destroy(collision.gameObject); // Destroy Augment Box after enter
         }
     }
 
-    private void chooseAugment()
+    private void getAugment()
     {
         int[] augmentNumbers = GenerateAugmentNumbers();
 
@@ -70,12 +70,25 @@ public class AugmentController : MonoBehaviour
         }
     }
 
-    private void DeleteSelectedAugment(int num)
+    private void DeleteSelectedAugment(int augment)
     {
+        int index = Array.IndexOf(allAugmentNumbers, augment);
 
+        if (index == -1)
+        {
+            Debug.Log($"Number {augment} not found in the array.");
+            return;
+        }
+
+        for (int i = index; i < allAugmentNumbers.Length - 1; i++)
+        {
+            allAugmentNumbers[i] = allAugmentNumbers[i + 1];
+        }
+
+        Array.Resize(ref allAugmentNumbers, allAugmentNumbers.Length - 1);
     }
 
-    private void PerformAction(int augment)
+    public void PerformAction(int augment)
     {
         switch (augment)
         {
@@ -103,8 +116,10 @@ public class AugmentController : MonoBehaviour
             case 8:
                 cooldownReset();
                 break;
-
         }
+
+        Debug.Log("Augment selected performed: " + augment);
+        DeleteSelectedAugment(augment);
     }
 
     private void healthBoost()

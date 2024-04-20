@@ -3467,6 +3467,7 @@ MonoBehaviour:
   augImg6: {fileID: 21300000, guid: d578dc116cd2521478a0dcae31da11e6, type: 3}
   augImg7: {fileID: 21300000, guid: 3665d9dc66c696f46a093051fb1b780f, type: 3}
   augImg8: {fileID: 21300000, guid: 0cbb6664b590e3540b345469159cd57e, type: 3}
+  errorImg: {fileID: 21300000, guid: 0532676a13181ad42922cb1620c2d0a9, type: 3}
   image1: {fileID: 573356334}
   image2: {fileID: 397763223}
   image3: {fileID: 1978502576}
@@ -3984,6 +3985,7 @@ MonoBehaviour:
   gameOverUI: {fileID: 0}
   RestartUI: {fileID: 0}
   AugmentUI: {fileID: 0}
+  augmentImgComponent: {fileID: 0}
 --- !u!1 &429547679
 GameObject:
   m_ObjectHideFlags: 0
@@ -4542,7 +4544,6 @@ GameObject:
   - component: {fileID: 573356332}
   - component: {fileID: 573356335}
   - component: {fileID: 573356334}
-  - component: {fileID: 573356333}
   m_Layer: 5
   m_Name: augImg1
   m_TagString: Untagged
@@ -4569,32 +4570,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0.0058, y: 52.8093}
   m_SizeDelta: {x: 103.4172, y: 103.4172}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &573356333
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 573356331}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79cc4ed05c30de44cbe6275f772a5d1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  augImg1: {fileID: 21300000, guid: 26a11f0efde240442968de0b682a1c64, type: 3}
-  augImg2: {fileID: 21300000, guid: 1c3d0e29c4715454d855e91fda9af4c0, type: 3}
-  augImg3: {fileID: 21300000, guid: 7c0ed3f6e71d21640a0d6f40e14b2484, type: 3}
-  augImg4: {fileID: 21300000, guid: e83b2eef26673a34b904f7df48734dca, type: 3}
-  augImg5: {fileID: 21300000, guid: 0222b74dc0e98c84885c827e1e120d0f, type: 3}
-  augImg6: {fileID: 21300000, guid: d578dc116cd2521478a0dcae31da11e6, type: 3}
-  augImg7: {fileID: 21300000, guid: 3665d9dc66c696f46a093051fb1b780f, type: 3}
-  augImg8: {fileID: 21300000, guid: 0cbb6664b590e3540b345469159cd57e, type: 3}
-  image1: {fileID: 573356334}
-  image2: {fileID: 397763223}
-  image3: {fileID: 1978502576}
-  text1: {fileID: 0}
-  text2: {fileID: 0}
-  text3: {fileID: 0}
 --- !u!114 &573356334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10444,7 +10419,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1227535603
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12340,6 +12315,7 @@ MonoBehaviour:
   gameOverUI: {fileID: 1651105239}
   RestartUI: {fileID: 1095291295}
   AugmentUI: {fileID: 1227535602}
+  augmentImgComponent: {fileID: 380985692}
 --- !u!4 &1427173469
 Transform:
   m_ObjectHideFlags: 0
@@ -13287,6 +13263,7 @@ MonoBehaviour:
   augImg6: {fileID: 21300000, guid: d578dc116cd2521478a0dcae31da11e6, type: 3}
   augImg7: {fileID: 21300000, guid: 3665d9dc66c696f46a093051fb1b780f, type: 3}
   augImg8: {fileID: 21300000, guid: 0cbb6664b590e3540b345469159cd57e, type: 3}
+  errorImg: {fileID: 21300000, guid: 0532676a13181ad42922cb1620c2d0a9, type: 3}
   image1: {fileID: 573356334}
   image2: {fileID: 397763223}
   image3: {fileID: 1978502576}
@@ -15978,6 +15955,7 @@ MonoBehaviour:
   augImg6: {fileID: 21300000, guid: d578dc116cd2521478a0dcae31da11e6, type: 3}
   augImg7: {fileID: 21300000, guid: 3665d9dc66c696f46a093051fb1b780f, type: 3}
   augImg8: {fileID: 21300000, guid: 0cbb6664b590e3540b345469159cd57e, type: 3}
+  errorImg: {fileID: 21300000, guid: 0532676a13181ad42922cb1620c2d0a9, type: 3}
   image1: {fileID: 573356334}
   image2: {fileID: 397763223}
   image3: {fileID: 1978502576}
@@ -20515,8 +20493,8 @@ SceneRoots:
   - {fileID: 68797903}
   - {fileID: 4007155053361664563}
   - {fileID: 1427173469}
+  - {fileID: 1543745510}
   - {fileID: 1651105244}
   - {fileID: 1095291300}
   - {fileID: 1227535607}
   - {fileID: 52579738}
-  - {fileID: 1543745510}

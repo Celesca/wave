@@ -16,6 +16,7 @@ public class AugmentImg : MonoBehaviour
     public Sprite augImg6;
     public Sprite augImg7;
     public Sprite augImg8;
+    public Sprite errorImg;
 
     public Image image1;
     public Image image2;
@@ -41,15 +42,17 @@ public class AugmentImg : MonoBehaviour
                               "<align=left></align>";
     private string augText8 = "<b><align=center> Cooldown Reset </align></b>\n\n" +
                               "<align=left></align>";
+    private string errorText = "No argument has been sent";
 
     void Start()
     {
         // testing
-        setAllImage(1, 3, 7);
+        //setAllImage(1, 3, 7);
     }
 
     public void setAllImage(int aug1, int aug2, int aug3)
     {
+        Debug.Log($"In AugmentImg receive from GameManagerScript: {aug1}, {aug2}, {aug3}");
         setImage1(aug1);
         setImage2(aug2);
         setImage3(aug3);
@@ -91,6 +94,10 @@ public class AugmentImg : MonoBehaviour
                 image1.sprite = augImg8;
                 text1.text = augText8;
                 break;
+            default:
+                image1.sprite = errorImg;
+                text1.text = errorText;
+                break;
         }
     }
 
@@ -130,6 +137,10 @@ public class AugmentImg : MonoBehaviour
                 image2.sprite = augImg8;
                 text2.text = augText8;
                 break;
+            default:
+                image2.sprite = errorImg;
+                text2.text = errorText;
+                break;
         }
     }
 
@@ -168,6 +179,10 @@ public class AugmentImg : MonoBehaviour
             case 8:
                 image3.sprite = augImg8;
                 text3.text = augText8;
+                break;
+            default:
+                image3.sprite = errorImg;
+                text3.text = errorText;
                 break;
         }
     }
