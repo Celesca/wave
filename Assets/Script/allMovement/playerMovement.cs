@@ -66,9 +66,9 @@ public class playerMovement : MonoBehaviour
 
         //flip and Change Scale
         if (horizontalInput > 0.01f)
-            transform.localScale = new Vector3(1, 1, 1);
+            transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
         else if (horizontalInput < -0.01f)
-            transform.localScale = new Vector3(-1, 1, 1);
+            transform.localScale = new Vector3(-0.4f, 0.4f, 0.4f);
 
         if (isDashing)
             return;
