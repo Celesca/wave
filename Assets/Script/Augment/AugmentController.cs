@@ -26,20 +26,20 @@ public class AugmentController : MonoBehaviour
         gameManager = FindObjectOfType<GameManagerScript>();
     }
 
+    // collision with augment box
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("AugmentBox"))
         {
             Debug.Log("Collided with: " + collision.gameObject.name);
-            getAugment();
-            // Bug
-            //Debug.Log("Send 3 numbers to GameManagerScript in AugmentController: " + gameManager.GetSelectedAugment(aug1, aug2, aug3));
+            getAugmentIndex();
             gameManager.GetSelectedAugment(aug1, aug2, aug3);
-            Destroy(collision.gameObject); // Destroy Augment Box after enter
+            Destroy(collision.gameObject);
         }
     }
 
-    private void getAugment()
+    // set value aug1, aug2, aug3
+    private void getAugmentIndex()
     {
         int[] augmentNumbers = GenerateAugmentNumbers();
 
@@ -49,6 +49,7 @@ public class AugmentController : MonoBehaviour
         Debug.Log($"Random Augments: {aug1}, {aug2}, {aug3}");
     }
 
+    // send 3 value of first 3 in augment array
     private int[] GenerateAugmentNumbers()
     {
         ShuffleArray(allAugmentNumbers);
@@ -70,6 +71,7 @@ public class AugmentController : MonoBehaviour
         }
     }
 
+    // delete augment number that has been selected by player
     private void DeleteSelectedAugment(int augment)
     {
         int index = Array.IndexOf(allAugmentNumbers, augment);
@@ -88,6 +90,7 @@ public class AugmentController : MonoBehaviour
         Array.Resize(ref allAugmentNumbers, allAugmentNumbers.Length - 1);
     }
 
+    // 
     public void PerformAction(int augment)
     {
         switch (augment)
@@ -121,6 +124,8 @@ public class AugmentController : MonoBehaviour
         Debug.Log("Augment selected performed: " + augment);
         DeleteSelectedAugment(augment);
     }
+
+    /* call to other classes to perform augment */
 
     private void healthBoost()
     {

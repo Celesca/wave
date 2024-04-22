@@ -114,7 +114,7 @@ public class playerMovement : MonoBehaviour
             {
                 canDoubleJump = false;
             }
-            // double jump
+            // Double jump
             if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space))
             {
                 if (isGrounded() || canDoubleJump)
@@ -261,6 +261,8 @@ public class playerMovement : MonoBehaviour
             anim.SetLayerWeight(currentSwap, 1);
         }
     }
+
+    /* Augment Call */
 
     public void enableDoubleJump()
     {

@@ -102,7 +102,8 @@ public class Health : MonoBehaviour
         Physics2D.IgnoreLayerCollision(1, 0, false); // Layer number Player and Enemy
     }
 
-    // Augment Call
+    /* Augment Call */
+
     public void healthBoost()
     { 
         startingHealth = 4;
