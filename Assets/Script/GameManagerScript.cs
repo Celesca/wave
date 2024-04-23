@@ -33,7 +33,7 @@ public class GameManagerScript : MonoBehaviour
     public void RestartClickedUI()
     {
         // restart the game
-        SceneManager.LoadScene(currentScene.buildIndex); // Load the current scene by its build index
+        SceneManager.LoadScene(1); // Load the current scene by its build index
     }
 
     public void RestartButton()
