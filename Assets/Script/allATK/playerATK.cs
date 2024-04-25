@@ -18,10 +18,16 @@ public class playerATK : MonoBehaviour
 
     private float cooldowntimer = Mathf.Infinity;
 
-    private bool isSkillCooldown;
+    public bool isSkillCooldown = false; 
     private float skillCooldown;
     private int countSkillATK;
 
+
+    public float timeSkillSMG = 5;
+    public float cooldownTimeSkillSMG = 10.0f;
+
+
+    public playerMovement pl;
 
     //tranform position Y if Crouch
     private float y = -2.26f;
@@ -39,46 +45,77 @@ public class playerATK : MonoBehaviour
         skillpointPosition();
 
 
-        if (Input.GetKey(KeyCode.X) && atkCooldown < cooldowntimer)
-        {
-            AtkSoundEffect.Play();
-            Atk();
-        }
-        if (Input.GetKey(KeyCode.Z) && skillAtkCooldown < cooldowntimer)
-        {
+       if (Input.GetKey(KeyCode.X) && atkCooldown < cooldowntimer)
+       {
+           if(isSkillCooldown && pl.currentSwap == 1)
+           {
+                   atkCooldown = 0.2f;
+                   AtkSoundEffect.Play();
+                   skillATK();
+           }
 
-            if (!isSkillCooldown)
-            {
-                skillATK();
-                countSkillATK++;
-            }
-        }
+           else if(!isSkillCooldown)
+           {
+               if (pl.currentSwap == 0)
+               {
+                   atkCooldown = 0.5f;
+                   AtkSoundEffect.Play();
+                   Atk();
 
-        // Auto Update the skillAtkCooldown
+               }
+               else if (pl.currentSwap == 1)
+               {
+                   atkCooldown = 0.2f;
+                   AtkSoundEffect.Play();
+                   Atk();
 
-        // Auto detect if player use skillATK 3 times
-        if (countSkillATK == 3)
-        {
-            countSkillATK = 0;
-            isSkillCooldown = true;
-            skillCooldown = 10;
-        }
+               }
+           }
+           
+       }
 
-        cooldowntimer += Time.deltaTime;
+       if (Input.GetKey(KeyCode.Z) && cooldownTimeSkillSMG <= 0)
+       {
+           isSkillCooldown = true;
+            cooldownTimeSkillSMG = 10;
+       }
 
-        if (isSkillCooldown)
-        {
-            skillCooldown -= Time.deltaTime;
+       /**
+       if (Input.GetKey(KeyCode.Z) && skillAtkCooldown < cooldowntimer)
+       {
 
-            Debug.Log(skillCooldown);
-            if (skillCooldown <= 0)
+           if (!isSkillCooldown)
+           {
+               skillATK();
+               countSkillATK++;
+           }
+       }
+       **/
+
+    // Auto Update the skillAtkCooldown
+
+    // Auto detect if player use skillATK 3 times
+    
+    
+    cooldowntimer += Time.deltaTime;
+
+    if (isSkillCooldown)
+    {
+        
+        timeSkillSMG -= Time.deltaTime;
+
+        Debug.Log(cooldownTimeSkillSMG);
+        if (timeSkillSMG <= 0)
             {
                 isSkillCooldown = false;
-            }
-
-        }
-
+                timeSkillSMG = 5;
+            }      
     }
+    if (!isSkillCooldown)
+         {
+             cooldownTimeSkillSMG -= Time.deltaTime;
+         }
+}
     private void FixedUpdate()
     {
 
@@ -117,7 +154,7 @@ public class playerATK : MonoBehaviour
         cooldowntimer = 0;
 
         fireballs[FindFireball()].transform.position = firepoint.position;
-        fireballs[FindFireball()].GetComponent<fireballATK>().SetDirection(Mathf.Sign(transform.localScale.x));
+        fireballs[FindFireball()].GetComponent<fireballATK>().SetDirectionFireball(Mathf.Sign(transform.localScale.x));
     }
     //Many fireball
     private int FindFireball()
@@ -136,7 +173,7 @@ public class playerATK : MonoBehaviour
         cooldowntimer = 0;
 
         skillFires[FindSkill()].transform.position = skillPoint.position;
-        skillFires[FindSkill()].GetComponent<skillFire>().setDirection(Mathf.Sign(transform.localScale.x));
+        skillFires[FindSkill()].GetComponent<skillFire>().SetDirectionSkill(Mathf.Sign(transform.localScale.x));
     }
     //skillFireball
     private int FindSkill()

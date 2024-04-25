@@ -8,11 +8,15 @@ public class skillFire : MonoBehaviour
 
     private Animator animator;
     private BoxCollider2D boxCollider;
+    private SpriteRenderer spd;
+
+    public playerMovement pl;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
+        spd = GetComponent<SpriteRenderer>(); 
     }
     private void Update()
     {
@@ -26,20 +30,36 @@ public class skillFire : MonoBehaviour
         hit = true;
         boxCollider.enabled = false;
         animator.SetTrigger("exp");
+
+        if (pl.currentSwap == 1)
+        {
+            collision.GetComponent<Health>().TakeDamage(1);
+        }
     }
     //Set direction of skillFire(left or right)
-    public void setDirection(float _direction)
+    public void SetDirectionSkill(float _direction)
     {
         direction = _direction;
         gameObject.SetActive(true);
         hit = false;
         boxCollider.enabled = true;
-
+        /**
         float localScaleX = transform.localScale.x;
         if (Mathf.Sign(localScaleX) != _direction)
             localScaleX = -localScaleX;
-
+        
         transform.localScale = new Vector3(localScaleX, transform.localScale.y, transform.localScale.z);
+        **/
+        float localScaleX = transform.localScale.x;
+        if (Mathf.Sign(localScaleX) != _direction)
+            spd.flipX = true;
+        else
+        {
+            spd.flipX = false;
+        }
+            
+
+
     }
     private void Deactivte()
     {

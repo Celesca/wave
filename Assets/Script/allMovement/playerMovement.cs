@@ -21,6 +21,7 @@ public class playerMovement : MonoBehaviour
     public Transform arrow;
     public float normalAcceleration;
 
+    private bool isRight = true;
     private float horizontalInput;
     public bool grounded;
 
@@ -69,9 +70,9 @@ public class playerMovement : MonoBehaviour
             transform.localScale = new Vector3(1, 1, 1);
         else if (horizontalInput < -0.01f)
             transform.localScale = new Vector3(-1, 1, 1);
-
+        
         if (isDashing)
-            return;
+                return;
 
         //Crouch
         crouch();

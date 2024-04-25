@@ -9,6 +9,8 @@ public class fireballATK : MonoBehaviour
     private Animator animator;
     private BoxCollider2D boxCollider;
 
+    public playerMovement pl;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -26,9 +28,26 @@ public class fireballATK : MonoBehaviour
         hit = true;
         boxCollider.enabled = false;
         animator.SetTrigger("exp");
+
+        //check if boxcollider hit tag 
+        if (collision.tag == "Enemy")
+
+        {
+            if (pl.currentSwap == 0)
+            {
+                collision.GetComponent<Health>().TakeDamage(1);
+
+            }
+            else if (pl.currentSwap == 1)
+            {
+
+                collision.GetComponent<Health>().TakeDamage(0.5f);
+
+            }
+        }
     }
     //Set direction of fireball(left or right)
-    public void SetDirection(float _direction)
+    public void SetDirectionFireball(float _direction)
     {
         direction = _direction;
         gameObject.SetActive(true);
