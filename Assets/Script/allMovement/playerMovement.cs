@@ -69,9 +69,6 @@ public class playerMovement : MonoBehaviour
         horizontalInput = Input.GetAxis("Horizontal");
         body.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, body.velocity.y);
 
-
-
-
         /**
                 if(horizontalInput != 0 && grounded)
                 {
@@ -84,7 +81,6 @@ public class playerMovement : MonoBehaviour
                     }
                 }
         **/
-
 
         //flip and Change Scale
         if (horizontalInput > 0.01f)
@@ -101,9 +97,8 @@ public class playerMovement : MonoBehaviour
         //Dash
         if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
         {
-            Debug.Log("Dash");
-            DashSoundEffect.Play();
-            StartCoroutine(Dash());
+                Debug.Log("Dash");
+                StartCoroutine(Dash());
         }
 
         // Jump
@@ -161,25 +156,12 @@ public class playerMovement : MonoBehaviour
     }
 
 
-    //Check anim working
-    bool isPlaying(Animator anim, string stateName)
-    {
-        if (anim.GetCurrentAnimatorStateInfo(0).IsName(stateName) &&
-                anim.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f)
-            return true;
-        else
-            return false;
-    }
-
-
     //FixUpdate
     private void FixedUpdate()
     {
         movementInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         body.velocity += movementInput * acceleration * Time.fixedDeltaTime;
     }
-
-
 
 
     //jump
@@ -189,6 +171,7 @@ public class playerMovement : MonoBehaviour
         anim.SetTrigger("jump");
         grounded = false;
     }
+
 
     //onGround
     private void OnCollisionEnter2D(Collision2D collision)
@@ -200,6 +183,7 @@ public class playerMovement : MonoBehaviour
 
     }
 
+
     //ground
     public bool isGrounded()
     {
@@ -207,12 +191,14 @@ public class playerMovement : MonoBehaviour
         return raycastHit.collider != null;
     }
 
+
     //wall
     private bool onWall()
     {
         RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, new Vector2(transform.localScale.x, 0), 0.1f, wallLayer);
         return raycastHit.collider != null;
     }
+
 
     //Crouch
     public void crouch()
@@ -228,9 +214,11 @@ public class playerMovement : MonoBehaviour
         anim.SetBool("crouch", isCrouch);
     }
 
+
     //Dash
     private IEnumerator Dash()
     {
+        DashSoundEffect.Play();
         canDash = false;
         isDashing = true;
         float originalGravity = body.gravityScale;
@@ -243,7 +231,9 @@ public class playerMovement : MonoBehaviour
         isDashing = false;
         yield return new WaitForSeconds(dashCooldown);
         canDash = true;
+        
     }
+
 
     //swap weapon
     void swapWeapon()
@@ -251,14 +241,34 @@ public class playerMovement : MonoBehaviour
         if (currentSwap == 0)
         {
             currentSwap += 1;
-            anim.SetLayerWeight(currentSwap - 1, 0);
-            anim.SetLayerWeight(currentSwap, 1);
+            anim.SetLayerWeight(0, 0);
+            anim.SetLayerWeight(1, 1);
+            anim.SetLayerWeight(2, 0);
+            anim.SetLayerWeight(3, 0);
         }
-        else
+        else if(currentSwap == 1)
         {
-            currentSwap -= 1;
-            anim.SetLayerWeight(currentSwap + 1, 0);
-            anim.SetLayerWeight(currentSwap, 1);
+            currentSwap += 1;
+            anim.SetLayerWeight(1, 0);
+            anim.SetLayerWeight(0, 0);
+            anim.SetLayerWeight(2, 1);
+            anim.SetLayerWeight(3, 0);
+        }
+        else if (currentSwap == 2)
+        {
+            currentSwap += 1;
+            anim.SetLayerWeight(2, 0);
+            anim.SetLayerWeight(1, 0);
+            anim.SetLayerWeight(0, 0);
+            anim.SetLayerWeight(3, 1);
+        }
+        else if (currentSwap == 3)
+        {
+            currentSwap -= 3;
+            anim.SetLayerWeight(3, 0);
+            anim.SetLayerWeight(2, 0);
+            anim.SetLayerWeight(1, 0);
+            anim.SetLayerWeight(0, 0);
         }
     }
 
