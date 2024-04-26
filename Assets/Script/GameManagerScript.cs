@@ -24,15 +24,20 @@ public class GameManagerScript : MonoBehaviour
     {
         currentScene = SceneManager.GetActiveScene(); // Get the current scene
         augControl = FindObjectOfType<AugmentController>();
+
+        /*
+        augmentImgComponent = FindObjectOfType<AugmentImg>();
+
+        if (augmentImgComponent == null)
+        {
+            Debug.LogError("AugmentImg component not found!");
+        }
+        */
     }
 
     void Update()
     {
-        // press [ESC] to pause the game
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            TogglePauseGame();
-        }
+
     }
 
     public void gameOver()
@@ -65,26 +70,6 @@ public class GameManagerScript : MonoBehaviour
         // WaitForSeconds() <-- die animation lenght
         yield return new WaitForSeconds(0.64f);
         RestartClickedUI();
-    }
-
-    // pause game/resume game
-    public void TogglePauseGame()
-    {
-        isGamePaused = !isGamePaused;
-        Time.timeScale = isGamePaused ? 0 : 1;
-    }
-
-    // pause game
-    private void PauseGame(bool pause)
-    {
-        Time.timeScale = pause ? 0 : 1;
-    }
-
-    // resume game
-    private void ResumeGame()
-    {
-        isGamePaused = false;
-        Time.timeScale = 1;
     }
 
     // called from AugmentController

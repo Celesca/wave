@@ -119,6 +119,9 @@ public class AugmentController : MonoBehaviour
             case 8:
                 cooldownReset();
                 break;
+            default:
+                Debug.Log("No Augment Selected");
+                break;
         }
 
         Debug.Log("Augment selected performed: " + augment);
