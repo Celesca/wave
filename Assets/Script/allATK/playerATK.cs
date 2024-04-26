@@ -18,7 +18,7 @@ public class playerATK : MonoBehaviour
 
     private float cooldowntimer = Mathf.Infinity;
 
-    public bool isSkillCooldown = false; 
+    public bool isSkillCooldown = false;
     private float skillCooldown;
     private int countSkillATK;
 
@@ -45,80 +45,81 @@ public class playerATK : MonoBehaviour
         skillpointPosition();
 
 
-       if (Input.GetKey(KeyCode.X) && atkCooldown < cooldowntimer)
-       {
-           if(isSkillCooldown && pl.currentSwap == 1)
-           {
-                   atkCooldown = 0.2f;
-                   AtkSoundEffect.Play();
-                   skillATK();
-           }
+        if (Input.GetKey(KeyCode.X) && atkCooldown < cooldowntimer)
+        {
+            if (isSkillCooldown && pl.currentSwap == 1)
+            {
+                atkCooldown = 0.2f;
+                AtkSoundEffect.Play();
+                skillATK();
+            }
 
-           else if(!isSkillCooldown)
-           {
-               if (pl.currentSwap == 0)
-               {
-                   atkCooldown = 0.5f;
-                   AtkSoundEffect.Play();
-                   Atk();
+            else if (!isSkillCooldown)
+            {
+                if (pl.currentSwap == 0)
+                {
+                    attcking(0.5f);
+                }
+                else if (pl.currentSwap == 1)
+                {
+                    attcking(0.2f);
+                }
+            }
+        }
 
-               }
-               else if (pl.currentSwap == 1)
-               {
-                   atkCooldown = 0.2f;
-                   AtkSoundEffect.Play();
-                   Atk();
-
-               }
-           }
-           
-       }
-
-       if (Input.GetKey(KeyCode.Z) && cooldownTimeSkillSMG <= 0)
-       {
-           isSkillCooldown = true;
+        if (Input.GetKey(KeyCode.Z) && cooldownTimeSkillSMG <= 0)
+        {
+            isSkillCooldown = true;
             cooldownTimeSkillSMG = 10;
-       }
+        }
 
-       /**
-       if (Input.GetKey(KeyCode.Z) && skillAtkCooldown < cooldowntimer)
-       {
+        /**
+        if (Input.GetKey(KeyCode.Z) && skillAtkCooldown < cooldowntimer)
+        {
 
-           if (!isSkillCooldown)
-           {
-               skillATK();
-               countSkillATK++;
-           }
-       }
-       **/
+            if (!isSkillCooldown)
+            {
+                skillATK();
+                countSkillATK++;
+            }
+        }
+        **/
 
-    // Auto Update the skillAtkCooldown
+        // Auto Update the skillAtkCooldown
 
-    // Auto detect if player use skillATK 3 times
-    
-    
-    cooldowntimer += Time.deltaTime;
+        // Auto detect if player use skillATK 3 times
 
-    if (isSkillCooldown)
-    {
-        
-        timeSkillSMG -= Time.deltaTime;
 
-        Debug.Log(cooldownTimeSkillSMG);
-        if (timeSkillSMG <= 0)
+        cooldowntimer += Time.deltaTime;
+
+        if (isSkillCooldown)
+        {
+
+            timeSkillSMG -= Time.deltaTime;
+
+            Debug.Log(cooldownTimeSkillSMG);
+            if (timeSkillSMG <= 0)
             {
                 isSkillCooldown = false;
                 timeSkillSMG = 5;
-            }      
+            }
+        }
+        if (!isSkillCooldown)
+        {
+            cooldownTimeSkillSMG -= Time.deltaTime;
+        }
     }
-    if (!isSkillCooldown)
-         {
-             cooldownTimeSkillSMG -= Time.deltaTime;
-         }
-}
     private void FixedUpdate()
     {
 
+    }
+
+    //cld atk normal
+    private void attcking(float cooldownTime)
+    {
+        atkCooldown = cooldownTime;
+        AtkSoundEffect.Play();
+        Atk();
     }
 
     //position point

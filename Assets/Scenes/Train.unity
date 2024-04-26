@@ -6980,7 +6980,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5165f1bd486dbe43ad73fc861035bb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  platk: {fileID: 1094324058}
+  plATK: {fileID: 1094324058}
   leftTime: 5
 --- !u!4 &1028797568
 Transform:

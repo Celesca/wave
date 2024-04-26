@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class showCooldown : MonoBehaviour
 {
-    public playerATK platk;
+    public playerATK plATK;
     public float leftTime = 5f;
 
     Text showTime;
@@ -21,7 +21,7 @@ public class showCooldown : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (platk.isSkillCooldown && leftTime > 0)
+        if (plATK.isSkillCooldown && leftTime > 0)
         {
             showTime.gameObject.SetActive(true);
             leftTime -= Time.deltaTime;
