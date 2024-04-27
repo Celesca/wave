@@ -44,25 +44,41 @@ public class playerATK : MonoBehaviour
         firepointPosition();
         skillpointPosition();
 
-
+        //ATK X normal and skill ATK
         if (Input.GetKey(KeyCode.X) && atkCooldown < cooldowntimer)
         {
-            if (isSkillCooldown && pl.currentSwap == 1)
+            //Skill atk
+            if (isSkillCooldown)
             {
-                atkCooldown = 0.2f;
-                AtkSoundEffect.Play();
-                skillATK();
+                //SMG
+                if (pl.currentSwap == 1)
+                {
+                    attckingSkill(0.2f);
+                }
+                //AR
+                else if (pl.currentSwap == 2)
+                {
+                    attckingSkill(0.25f);
+                }
+               
             }
-
+            //Normal atk
             else if (!isSkillCooldown)
             {
+                //Pistol
                 if (pl.currentSwap == 0)
                 {
-                    attcking(0.5f);
+                    attckingNormal(0.5f);
                 }
+                //SMG
                 else if (pl.currentSwap == 1)
                 {
-                    attcking(0.2f);
+                    attckingNormal(0.2f);
+                }
+                //AR
+                else if(pl.currentSwap == 2)
+                {
+                    attckingNormal(0.5f);
                 }
             }
         }
@@ -72,23 +88,6 @@ public class playerATK : MonoBehaviour
             isSkillCooldown = true;
             cooldownTimeSkillSMG = 10;
         }
-
-        /**
-        if (Input.GetKey(KeyCode.Z) && skillAtkCooldown < cooldowntimer)
-        {
-
-            if (!isSkillCooldown)
-            {
-                skillATK();
-                countSkillATK++;
-            }
-        }
-        **/
-
-        // Auto Update the skillAtkCooldown
-
-        // Auto detect if player use skillATK 3 times
-
 
         cooldowntimer += Time.deltaTime;
 
@@ -115,11 +114,19 @@ public class playerATK : MonoBehaviour
     }
 
     //cld atk normal
-    private void attcking(float cooldownTime)
+    private void attckingNormal(float cooldownTime)
     {
         atkCooldown = cooldownTime;
         AtkSoundEffect.Play();
         Atk();
+    }
+
+    //cld atk normal
+    private void attckingSkill(float cooldownTime)
+    {
+        atkCooldown = cooldownTime;
+        AtkSoundEffect.Play();
+        skillATK();
     }
 
     //position point

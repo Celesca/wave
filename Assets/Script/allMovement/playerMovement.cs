@@ -41,6 +41,11 @@ public class playerMovement : MonoBehaviour
     private float dashTime = 0.1f;
     private float dashCooldown = 1f;
 
+    //Scale Player
+    [SerializeField] private float x;
+    [SerializeField] private float y;
+    [SerializeField] private float z; 
+
     //Jump
     bool jump = true;
 
@@ -67,9 +72,9 @@ public class playerMovement : MonoBehaviour
 
         //flip and Change Scale
         if (horizontalInput > 0.01f)
-            transform.localScale = new Vector3(1, 1, 1);
+            transform.localScale = new Vector3(x, y, z);
         else if (horizontalInput < -0.01f)
-            transform.localScale = new Vector3(-1, 1, 1);
+            transform.localScale = new Vector3(x * -1f, y, z);
         
         if (isDashing)
                 return;

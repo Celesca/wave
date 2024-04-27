@@ -27,7 +27,7 @@ public class showCooldown : MonoBehaviour
             leftTime -= Time.deltaTime;
             showTime.text = leftTime.ToString("F2");
         }
-        else if(leftTime <= 0)
+        else if(leftTime < 0)
         {
             showTime.gameObject.SetActive(false);
             leftTime = 5;
