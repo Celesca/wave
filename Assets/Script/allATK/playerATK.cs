@@ -82,7 +82,7 @@ public class playerATK : MonoBehaviour
                 }
             }
         }
-
+        //Check if click Z use Skill 
         if (Input.GetKey(KeyCode.Z) && cooldownTimeSkillSMG <= 0)
         {
             isSkillCooldown = true;

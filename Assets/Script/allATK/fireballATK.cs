@@ -33,16 +33,21 @@ public class fireballATK : MonoBehaviour
         if (collision.tag == "Enemy")
 
         {
+            //Damage
+            //Pistol
             if (pl.currentSwap == 0)
             {
-                collision.GetComponent<Health>().TakeDamage(1);
-
+                collision.GetComponent<Health>().TakeDamage(1f);
             }
+            //SMG
             else if (pl.currentSwap == 1)
             {
-
                 collision.GetComponent<Health>().TakeDamage(0.5f);
-
+            }
+            //AR
+            else if (pl.currentSwap == 2)
+            {
+                collision.GetComponent<Health>().TakeDamage(1f);
             }
         }
     }
