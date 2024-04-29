@@ -5,7 +5,6 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
-  - AugmentBox
   layers:
   - Default
   - TransparentFX
@@ -54,7 +53,4 @@ TagManager:
     locked: 0
   - name: Enemy
     uniqueID: 336997621
-    locked: 0
-  - name: AugmentBox
-    uniqueID: 3034932275
     locked: 0
