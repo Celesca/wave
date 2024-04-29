@@ -101,17 +101,4 @@ public class Health : MonoBehaviour
         }
         Physics2D.IgnoreLayerCollision(1, 0, false); // Layer number Player and Enemy
     }
-
-    /* Augment Call */
-
-    public void healthBoost()
-    { 
-        startingHealth = 4;
-        currentHealth = 4;
-    }
-
-    public void armorBoost()
-    {
-        armor = 1;
-    }
 }
