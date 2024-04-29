@@ -8,6 +8,7 @@ public class BossMove1 : MonoBehaviour {
     public BossSpecial bossSpecial;
     public GameObject bullet;
     public Transform bulletPos;
+    public BossMove1 bossMove1;
     private float timeBeforeAttack = 15f;
     private float timeBeforeUse = 0.6f;
     private float move1AttackRange = 15f;
@@ -15,10 +16,11 @@ public class BossMove1 : MonoBehaviour {
     private Animator animator;
     private bool hasActivated = false;
     private bool hasStartedCoroutine = false;
+    private BossHealth bossHealth;
 
     private void Start()
     {
-
+        bossHealth = GetComponent<BossHealth>();
     }
     private void Update()
     {
@@ -67,7 +69,13 @@ public class BossMove1 : MonoBehaviour {
 
                 hasActivated = false;
                 // Enable the other script
-                if (bossSpecial != null)
+                /*if (bossSpecial != null)
+                {
+                    bossSpecial.enabled = true;
+                    enabled = false;
+                    hasActivated = true;
+                }*/
+                if (bossHealth != null && bossHealth.currentHealth == bossHealth.startingHealth / 2)
                 {
                     bossSpecial.enabled = true;
                     enabled = false;

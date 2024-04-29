@@ -2101,6 +2101,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   seaBubbles: {fileID: 7625573867069234417, guid: 8e2beab152cb1cf4cbcffee494dcefa8, type: 3}
   seaBuubblesPos: {fileID: 1667077454}
+--- !u!114 &1469649931 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8107727947075181420, guid: df75e9cefb9c06a4892a70eb0e3b2080, type: 3}
+  m_PrefabInstance: {fileID: 4276890307283755498}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1469649929}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2959ee788bfd91458fd0563c9423f71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1469649932 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3114703733633977959, guid: df75e9cefb9c06a4892a70eb0e3b2080, type: 3}
+  m_PrefabInstance: {fileID: 4276890307283755498}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1469649929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24c2a28005385b64e997da5d3caff563, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1545361987
 GameObject:
   m_ObjectHideFlags: 0
@@ -4593,6 +4615,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6361315058279100094, guid: df75e9cefb9c06a4892a70eb0e3b2080, type: 3}
+      propertyPath: bossMove1
+      value: 
+      objectReference: {fileID: 1469649932}
+    - target: {fileID: 6361315058279100094, guid: df75e9cefb9c06a4892a70eb0e3b2080, type: 3}
+      propertyPath: bossSpecial
+      value: 
+      objectReference: {fileID: 1469649931}
     - target: {fileID: 8107727947075181420, guid: df75e9cefb9c06a4892a70eb0e3b2080, type: 3}
       propertyPath: waterfallPrefab
       value: 

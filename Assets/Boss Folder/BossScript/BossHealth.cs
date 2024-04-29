@@ -8,11 +8,13 @@ public class BossHealth : MonoBehaviour
     [SerializeField] private Behaviour[] components;
 
     [Header("Health")]
-    [SerializeField] private float startingHealth;
+    [SerializeField] public float startingHealth;
 
     public float currentHealth { get; private set; }
     private Animator anim;
     private bool dead;
+    public BossSpecial bossSpecial;
+    public BossMove1 bossMove1;
 
     [Header("iFrames")]
     [SerializeField] private float iFramesDuration;
