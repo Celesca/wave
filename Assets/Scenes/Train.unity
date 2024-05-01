@@ -265,7 +265,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
-  pl: {fileID: 0}
 --- !u!50 &53156066
 Rigidbody2D:
   serializedVersion: 4
@@ -460,7 +459,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  pl: {fileID: 0}
 --- !u!95 &56748330
 Animator:
   serializedVersion: 5
@@ -884,7 +882,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  pl: {fileID: 0}
 --- !u!95 &157104243
 Animator:
   serializedVersion: 5
@@ -1079,7 +1076,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  pl: {fileID: 0}
 --- !u!95 &171408893
 Animator:
   serializedVersion: 5
@@ -1358,7 +1354,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
-  pl: {fileID: 0}
 --- !u!50 &203817214
 Rigidbody2D:
   serializedVersion: 4
@@ -1553,7 +1548,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  pl: {fileID: 0}
 --- !u!95 &204699036
 Animator:
   serializedVersion: 5
@@ -1748,7 +1742,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  pl: {fileID: 0}
 --- !u!95 &208330061
 Animator:
   serializedVersion: 5
@@ -1943,7 +1936,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
-  pl: {fileID: 0}
 --- !u!50 &225101501
 Rigidbody2D:
   serializedVersion: 4
@@ -2138,7 +2130,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  pl: {fileID: 0}
 --- !u!95 &273542434
 Animator:
   serializedVersion: 5
@@ -2333,7 +2324,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
-  pl: {fileID: 0}
 --- !u!50 &288785601
 Rigidbody2D:
   serializedVersion: 4
@@ -2660,7 +2650,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
-  pl: {fileID: 0}
 --- !u!50 &311774474
 Rigidbody2D:
   serializedVersion: 4
@@ -2855,7 +2844,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
-  pl: {fileID: 0}
 --- !u!50 &319233604
 Rigidbody2D:
   serializedVersion: 4
@@ -3050,7 +3038,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
-  pl: {fileID: 0}
 --- !u!50 &325505179
 Rigidbody2D:
   serializedVersion: 4
@@ -3375,7 +3362,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  pl: {fileID: 0}
 --- !u!95 &385041615
 Animator:
   serializedVersion: 5
@@ -3654,7 +3640,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  pl: {fileID: 0}
 --- !u!95 &390465311
 Animator:
   serializedVersion: 5
@@ -3998,7 +3983,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  pl: {fileID: 0}
 --- !u!95 &450014598
 Animator:
   serializedVersion: 5
@@ -4226,7 +4210,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  pl: {fileID: 0}
 --- !u!95 &459471877
 Animator:
   serializedVersion: 5
@@ -4567,7 +4550,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  pl: {fileID: 0}
 --- !u!95 &568364551
 Animator:
   serializedVersion: 5
@@ -4928,7 +4910,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  pl: {fileID: 0}
 --- !u!95 &630544662
 Animator:
   serializedVersion: 5
@@ -5234,7 +5215,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
-  pl: {fileID: 0}
 --- !u!50 &697332230
 Rigidbody2D:
   serializedVersion: 4
@@ -5429,7 +5409,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
-  pl: {fileID: 0}
 --- !u!50 &699201752
 Rigidbody2D:
   serializedVersion: 4
@@ -5708,7 +5687,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
-  pl: {fileID: 0}
 --- !u!50 &732125833
 Rigidbody2D:
   serializedVersion: 4
@@ -5903,7 +5881,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  pl: {fileID: 0}
 --- !u!95 &762246474
 Animator:
   serializedVersion: 5
@@ -6098,7 +6075,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
-  pl: {fileID: 0}
 --- !u!50 &790291717
 Rigidbody2D:
   serializedVersion: 4
@@ -6293,7 +6269,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  pl: {fileID: 0}
 --- !u!95 &820031489
 Animator:
   serializedVersion: 5
@@ -6488,7 +6463,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
-  pl: {fileID: 0}
 --- !u!50 &891724611
 Rigidbody2D:
   serializedVersion: 4
@@ -6683,7 +6657,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  pl: {fileID: 0}
 --- !u!95 &897106367
 Animator:
   serializedVersion: 5
@@ -6971,7 +6944,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
-  pl: {fileID: 0}
 --- !u!50 &959279888
 Rigidbody2D:
   serializedVersion: 4
@@ -7311,7 +7283,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
-  pl: {fileID: 0}
 --- !u!1 &1067518988
 GameObject:
   m_ObjectHideFlags: 0
@@ -7361,7 +7332,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  pl: {fileID: 0}
 --- !u!95 &1067518991
 Animator:
   serializedVersion: 5
@@ -7556,7 +7526,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  pl: {fileID: 0}
 --- !u!95 &1077377277
 Animator:
   serializedVersion: 5
@@ -7751,7 +7720,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
-  pl: {fileID: 0}
 --- !u!50 &1081274694
 Rigidbody2D:
   serializedVersion: 4
@@ -8192,12 +8160,6 @@ MonoBehaviour:
   - {fileID: 288785598}
   - {fileID: 891724608}
   AtkSoundEffect: {fileID: 1094324067}
-  isSkillCooldown: 0
-  timeSkillSMG: 5
-  cooldownTimeSkillSMG: 10
-  timeAR: 0
-  pl: {fileID: 1094324059}
-  beforeShootTime: 0.5
 --- !u!114 &1094324059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8229,7 +8191,6 @@ MonoBehaviour:
   isCrouch: 0
   boxCollider: {fileID: 0}
   test: 0
-  xyz: 1
   currentSwap: 0
 --- !u!61 &1094324060
 BoxCollider2D:
@@ -9005,7 +8966,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  pl: {fileID: 0}
 --- !u!95 &1120898382
 Animator:
   serializedVersion: 5
@@ -9200,7 +9160,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  pl: {fileID: 0}
 --- !u!95 &1130818946
 Animator:
   serializedVersion: 5
@@ -9395,7 +9354,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
-  pl: {fileID: 0}
 --- !u!50 &1147274096
 Rigidbody2D:
   serializedVersion: 4
@@ -9758,7 +9716,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  pl: {fileID: 0}
 --- !u!95 &1247014370
 Animator:
   serializedVersion: 5
@@ -9953,7 +9910,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  pl: {fileID: 0}
 --- !u!95 &1329239574
 Animator:
   serializedVersion: 5
@@ -10148,7 +10104,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
-  pl: {fileID: 0}
 --- !u!50 &1351561690
 Rigidbody2D:
   serializedVersion: 4
@@ -10427,7 +10382,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
-  pl: {fileID: 0}
 --- !u!50 &1375048556
 Rigidbody2D:
   serializedVersion: 4
@@ -10622,7 +10576,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
-  pl: {fileID: 0}
 --- !u!50 &1388088193
 Rigidbody2D:
   serializedVersion: 4
@@ -10865,7 +10818,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
-  pl: {fileID: 0}
 --- !u!50 &1448923473
 Rigidbody2D:
   serializedVersion: 4
@@ -11060,7 +11012,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  pl: {fileID: 0}
 --- !u!95 &1474223674
 Animator:
   serializedVersion: 5
@@ -11255,7 +11206,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  pl: {fileID: 0}
 --- !u!95 &1483641155
 Animator:
   serializedVersion: 5
@@ -11450,7 +11400,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
-  pl: {fileID: 0}
 --- !u!50 &1514414599
 Rigidbody2D:
   serializedVersion: 4
@@ -11645,7 +11594,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  pl: {fileID: 0}
 --- !u!95 &1521689802
 Animator:
   serializedVersion: 5
@@ -12211,7 +12159,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
-  pl: {fileID: 0}
 --- !u!50 &1677364424
 Rigidbody2D:
   serializedVersion: 4
@@ -12551,7 +12498,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  pl: {fileID: 0}
 --- !u!95 &1710099805
 Animator:
   serializedVersion: 5
@@ -12746,7 +12692,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  pl: {fileID: 0}
 --- !u!95 &1719003862
 Animator:
   serializedVersion: 5
@@ -12941,7 +12886,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
-  pl: {fileID: 0}
 --- !u!50 &1730418005
 Rigidbody2D:
   serializedVersion: 4
@@ -13374,7 +13318,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
-  pl: {fileID: 0}
 --- !u!50 &1806436893
 Rigidbody2D:
   serializedVersion: 4
@@ -13569,7 +13512,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  pl: {fileID: 0}
 --- !u!95 &1825395418
 Animator:
   serializedVersion: 5
@@ -13764,7 +13706,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
-  pl: {fileID: 0}
 --- !u!50 &1841988546
 Rigidbody2D:
   serializedVersion: 4
@@ -14056,7 +13997,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  pl: {fileID: 0}
 --- !u!95 &1975072885
 Animator:
   serializedVersion: 5
@@ -14335,7 +14275,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
-  pl: {fileID: 0}
 --- !u!50 &2004576028
 Rigidbody2D:
   serializedVersion: 4
@@ -14530,7 +14469,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
-  pl: {fileID: 0}
 --- !u!50 &2005489532
 Rigidbody2D:
   serializedVersion: 4
@@ -14725,7 +14663,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  pl: {fileID: 0}
 --- !u!95 &2044774192
 Animator:
   serializedVersion: 5
@@ -14920,7 +14857,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  pl: {fileID: 0}
 --- !u!95 &2075826178
 Animator:
   serializedVersion: 5
@@ -15115,7 +15051,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
-  pl: {fileID: 0}
 --- !u!50 &2081181275
 Rigidbody2D:
   serializedVersion: 4
@@ -15310,7 +15245,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
-  pl: {fileID: 0}
 --- !u!50 &2107269231
 Rigidbody2D:
   serializedVersion: 4
@@ -15505,7 +15439,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
-  pl: {fileID: 0}
 --- !u!50 &2117644973
 Rigidbody2D:
   serializedVersion: 4
@@ -16231,12 +16164,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   AtkSoundEffect: {fileID: 0}
-  isSkillCooldown: 0
-  timeSkillSMG: 5
-  cooldownTimeSkillSMG: 10
-  timeAR: 0
-  pl: {fileID: 0}
-  beforeShootTime: 0.5
 --- !u!1 &775313330085943192
 GameObject:
   m_ObjectHideFlags: 0
@@ -17135,7 +17062,6 @@ MonoBehaviour:
   isCrouch: 0
   boxCollider: {fileID: 0}
   test: 0
-  xyz: 0
   currentSwap: 0
 --- !u!222 &1793870031739646161
 CanvasRenderer:
@@ -19960,7 +19886,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  pl: {fileID: 0}
 --- !u!1 &5752482419254027286
 GameObject:
   m_ObjectHideFlags: 0
