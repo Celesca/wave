@@ -8,7 +8,6 @@ public class BossMove1 : MonoBehaviour {
     public BossSpecial bossSpecial;
     public GameObject bullet;
     public Transform bulletPos;
-    public BossMove1 bossMove1;
     private float timeBeforeAttack = 15f;
     private float timeBeforeUse = 0.6f;
     private float move1AttackRange = 15f;
