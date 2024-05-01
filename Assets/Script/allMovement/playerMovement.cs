@@ -1,4 +1,6 @@
+using System;
 using System.Collections;
+using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -46,6 +48,10 @@ public class playerMovement : MonoBehaviour
     //For swap weapon
     public int currentSwap;
 
+    // Double Jump Call
+    private bool isDoubleJump = false;
+    private bool canDoubleJump;
+
     private void Awake()
     {
         body = GetComponent<Rigidbody2D>();
@@ -64,6 +70,22 @@ public class playerMovement : MonoBehaviour
         body.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, body.velocity.y);
 
 
+
+
+        /**
+                if(horizontalInput != 0 && grounded)
+                {
+                    anim.SetBool("run", true);
+
+                    if(isCrouch) 
+                    {
+                        anim.SetBool("run", false);
+                        crouch();
+                    }
+                }
+        **/
+
+
         //flip and Change Scale
         if (horizontalInput > 0.01f)
             transform.localScale = new Vector3(1, 1, 1);
@@ -79,16 +101,41 @@ public class playerMovement : MonoBehaviour
         //Dash
         if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
         {
-                Debug.Log("Dash");
-                StartCoroutine(Dash());
+            Debug.Log("Dash");
+            DashSoundEffect.Play();
+            StartCoroutine(Dash());
         }
 
-        //Jump
-        if ((Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.Space)) && grounded)
+        // Jump
+        if (isDoubleJump)
         {
-            JumpSoundEffect.Play();
-            Jump();
+            // Check if player is in the air (for double jump)
+            if (isGrounded() && !Input.GetKey(KeyCode.Space))
+            {
+                canDoubleJump = false;
+            }
+            // Double jump
+            if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space))
+            {
+                if (isGrounded() || canDoubleJump)
+                {
+                    JumpSoundEffect.Play();
+                    Jump();
+
+                    canDoubleJump = !canDoubleJump;
+                }
+            }
         }
+        else
+        {
+            // Normal jump
+            if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space)) && isGrounded())
+            {
+                JumpSoundEffect.Play();
+                Jump();
+            }
+        }
+
 
         //Swap weapon
         if (Input.GetKeyDown(KeyCode.C))
@@ -102,16 +149,26 @@ public class playerMovement : MonoBehaviour
             test = true;
         }
 
-
         //Set yVelocity
         anim.SetFloat("yVelocity", body.velocity.y);
 
         //Animation run
 
-        anim.SetBool("run", horizontalInput != 0  &&  grounded);
+        anim.SetBool("run", horizontalInput != 0 && grounded);
         anim.SetBool("grounded", grounded);
 
-        
+
+    }
+
+
+    //Check anim working
+    bool isPlaying(Animator anim, string stateName)
+    {
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName(stateName) &&
+                anim.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f)
+            return true;
+        else
+            return false;
     }
 
 
@@ -123,6 +180,8 @@ public class playerMovement : MonoBehaviour
     }
 
 
+
+
     //jump
     private void Jump()
     {
@@ -131,14 +190,15 @@ public class playerMovement : MonoBehaviour
         grounded = false;
     }
 
-
     //onGround
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Ground")
+        {
             grounded = true;
-    }
+        }
 
+    }
 
     //ground
     public bool isGrounded()
@@ -147,14 +207,12 @@ public class playerMovement : MonoBehaviour
         return raycastHit.collider != null;
     }
 
-
     //wall
     private bool onWall()
     {
         RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, new Vector2(transform.localScale.x, 0), 0.1f, wallLayer);
         return raycastHit.collider != null;
     }
-
 
     //Crouch
     public void crouch()
@@ -170,11 +228,9 @@ public class playerMovement : MonoBehaviour
         anim.SetBool("crouch", isCrouch);
     }
 
-
     //Dash
     private IEnumerator Dash()
     {
-        DashSoundEffect.Play();
         canDash = false;
         isDashing = true;
         float originalGravity = body.gravityScale;
@@ -187,9 +243,7 @@ public class playerMovement : MonoBehaviour
         isDashing = false;
         yield return new WaitForSeconds(dashCooldown);
         canDash = true;
-        
     }
-
 
     //swap weapon
     void swapWeapon()
@@ -197,35 +251,21 @@ public class playerMovement : MonoBehaviour
         if (currentSwap == 0)
         {
             currentSwap += 1;
-            anim.SetLayerWeight(0, 0);
-            anim.SetLayerWeight(1, 1);
-            anim.SetLayerWeight(2, 0);
-            anim.SetLayerWeight(3, 0);
+            anim.SetLayerWeight(currentSwap - 1, 0);
+            anim.SetLayerWeight(currentSwap, 1);
         }
-        else if(currentSwap == 1)
+        else
         {
-            currentSwap += 1;
-            anim.SetLayerWeight(1, 0);
-            anim.SetLayerWeight(0, 0);
-            anim.SetLayerWeight(2, 1);
-            anim.SetLayerWeight(3, 0);
-        }
-        else if (currentSwap == 2)
-        {
-            currentSwap += 1;
-            anim.SetLayerWeight(2, 0);
-            anim.SetLayerWeight(1, 0);
-            anim.SetLayerWeight(0, 0);
-            anim.SetLayerWeight(3, 1);
-        }
-        else if (currentSwap == 3)
-        {
-            currentSwap -= 3;
-            anim.SetLayerWeight(3, 0);
-            anim.SetLayerWeight(2, 0);
-            anim.SetLayerWeight(1, 0);
-            anim.SetLayerWeight(0, 0);
+            currentSwap -= 1;
+            anim.SetLayerWeight(currentSwap + 1, 0);
+            anim.SetLayerWeight(currentSwap, 1);
         }
     }
 
+    /* Augment Call */
+
+    public void enableDoubleJump()
+    {
+        isDoubleJump = true;
+    }
 }
