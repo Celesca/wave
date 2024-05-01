@@ -22,7 +22,7 @@ public class AugmentImg : MonoBehaviour
       "<b><align=center> Cooldown Reset </align></b>\n\n<align=left></align>"
     };
     */
-
+    
     public Sprite errorImg;
     private string errorText = "No argument has been sent";
 
