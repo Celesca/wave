@@ -8195,8 +8195,8 @@ MonoBehaviour:
   isSkillCooldown: 0
   timeSkillSMG: 5
   cooldownTimeSkillSMG: 10
+  timeAR: 0
   pl: {fileID: 1094324059}
-  a: 0
   beforeShootTime: 0.5
 --- !u!114 &1094324059
 MonoBehaviour:
@@ -16234,8 +16234,8 @@ MonoBehaviour:
   isSkillCooldown: 0
   timeSkillSMG: 5
   cooldownTimeSkillSMG: 10
+  timeAR: 0
   pl: {fileID: 0}
-  a: 0
   beforeShootTime: 0.5
 --- !u!1 &775313330085943192
 GameObject:

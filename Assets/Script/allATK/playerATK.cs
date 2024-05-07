@@ -23,15 +23,12 @@ public class playerATK : MonoBehaviour
     private float skillCooldown;
     private int countSkillATK;
 
-
     public float timeSkillSMG = 5;
     public float cooldownTimeSkillSMG = 10.0f;
 
     public float timeAR;
 
     public playerMovement pl;
-
-    [SerializeField] public float a;
 
     //cld AR 
     public float beforeShootTime = 0.5f;
@@ -53,6 +50,7 @@ public class playerATK : MonoBehaviour
         //position point if crouch
         firepointPosition();
         skillpointPosition();
+        beforeTimeAR();
 
         //ATK X normal and skill ATK
         if (Input.GetKey(KeyCode.X) && atkCooldown < cooldowntimer)
@@ -66,7 +64,7 @@ public class playerATK : MonoBehaviour
                     attckingSkill(0.2f);
                 }
                 //AR
-                else if (pl.currentSwap == 2 && beforeTimeAR() < cooldowntimer)
+                else if (pl.currentSwap == 2 && beforeShootTime < cooldowntimer)
                 {
                     StartCoroutine(ShootAR());
                 }
@@ -78,7 +76,7 @@ public class playerATK : MonoBehaviour
                 //Pistol
                 if (pl.currentSwap == 0)
                 {
-                    attckingNormal(a);
+                    attckingNormal(0.1f);
                 }
                 //SMG
                 else if (pl.currentSwap == 1)
@@ -86,7 +84,7 @@ public class playerATK : MonoBehaviour
                     attckingNormal(0.2f);
                 }
                 //AR
-                else if (pl.currentSwap == 2 && beforeTimeAR() < cooldowntimer)
+                else if (pl.currentSwap == 2 && beforeShootTime < cooldowntimer)
                 {
                     StartCoroutine(ShootAR());
                 }
@@ -218,17 +216,17 @@ public class playerATK : MonoBehaviour
         }
     }
 
-    public float beforeTimeAR()
+    //AR time cooldown
+    public void beforeTimeAR()
     {
         if (!isSkillCooldown && pl.currentSwap == 2)
         {
-            timeAR = 0.5f;
+            beforeShootTime = 0.5f;
         }
         else if(isSkillCooldown && pl.currentSwap == 2)
         {
-            timeAR = 0.25f;
+            beforeShootTime = 0.25f;
         }
-        return timeAR;
     }
     //AR atk
     public void shootingAR(float cooldown)
