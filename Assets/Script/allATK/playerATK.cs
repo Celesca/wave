@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class playerATK : MonoBehaviour
@@ -18,15 +19,27 @@ public class playerATK : MonoBehaviour
 
     private float cooldowntimer = Mathf.Infinity;
 
-    private bool isSkillCooldown;
+    public bool isSkillCooldown = false;
     private float skillCooldown;
     private int countSkillATK;
 
+    public float timeSkillSMG = 5;
+    public float cooldownTimeSkillSMG = 10.0f;
+
+    public float timeAR;
+
+    public playerMovement pl;
+
+    //cld AR 
+    public float beforeShootTime = 0.5f;
 
     //tranform position Y if Crouch
     private float y = -2.26f;
 
+    private void Start()
+    {
 
+    }
     private void Awake()
     {
         anim = GetComponent<Animator>();
@@ -37,51 +50,94 @@ public class playerATK : MonoBehaviour
         //position point if crouch
         firepointPosition();
         skillpointPosition();
+        beforeTimeAR();
 
-
+        //ATK X normal and skill ATK
         if (Input.GetKey(KeyCode.X) && atkCooldown < cooldowntimer)
         {
-            AtkSoundEffect.Play();
-            Atk();
-        }
-        if (Input.GetKey(KeyCode.Z) && skillAtkCooldown < cooldowntimer)
-        {
-
-            if (!isSkillCooldown)
+            //Skill atk
+            if (isSkillCooldown)
             {
-                skillATK();
-                countSkillATK++;
+                //SMG
+                if (pl.currentSwap == 1)
+                {
+                    attckingSkill(0.2f);
+                }
+                //AR
+                else if (pl.currentSwap == 2 && beforeShootTime < cooldowntimer)
+                {
+                    StartCoroutine(ShootAR());
+                }
+
+            }
+            //Normal atk
+            else if (!isSkillCooldown)
+            {
+                //Pistol
+                if (pl.currentSwap == 0)
+                {
+                    attckingNormal(0.1f);
+                }
+                //SMG
+                else if (pl.currentSwap == 1)
+                {
+                    attckingNormal(0.2f);
+                }
+                //AR
+                else if (pl.currentSwap == 2 && beforeShootTime < cooldowntimer)
+                {
+                    StartCoroutine(ShootAR());
+                }
             }
         }
-
-        // Auto Update the skillAtkCooldown
-
-        // Auto detect if player use skillATK 3 times
-        if (countSkillATK == 3)
+        //Check if click Z use Skill 
+        if (Input.GetKey(KeyCode.Z) && cooldownTimeSkillSMG <= 0 && pl.currentSwap != 0)
         {
-            countSkillATK = 0;
             isSkillCooldown = true;
-            skillCooldown = 10;
+            cooldownTimeSkillSMG = 10;
         }
+
+
 
         cooldowntimer += Time.deltaTime;
 
+        //SMG 
         if (isSkillCooldown)
         {
-            skillCooldown -= Time.deltaTime;
 
-            Debug.Log(skillCooldown);
-            if (skillCooldown <= 0)
+            timeSkillSMG -= Time.deltaTime;
+
+            Debug.Log(cooldownTimeSkillSMG);
+            if (timeSkillSMG <= 0)
             {
                 isSkillCooldown = false;
+                timeSkillSMG = 5;
             }
-
         }
-
+        if (!isSkillCooldown)
+        {
+            cooldownTimeSkillSMG -= Time.deltaTime;
+        }
     }
     private void FixedUpdate()
     {
 
+    }
+
+    //cld atk normal
+    private void attckingNormal(float cooldownTime)
+    {
+        atkCooldown = cooldownTime;
+        AtkSoundEffect.Play();
+        Atk();
+    }
+
+    //cld atk normal
+    private void attckingSkill(float cooldownTime)
+    {
+        atkCooldown = cooldownTime;
+        AtkSoundEffect.Play();
+        skillATK();
     }
 
     //position point
@@ -117,7 +173,7 @@ public class playerATK : MonoBehaviour
         cooldowntimer = 0;
 
         fireballs[FindFireball()].transform.position = firepoint.position;
-        fireballs[FindFireball()].GetComponent<fireballATK>().SetDirection(Mathf.Sign(transform.localScale.x));
+        fireballs[FindFireball()].GetComponent<fireballATK>().SetDirectionFireball(Mathf.Sign(transform.localScale.x));
     }
     //Many fireball
     private int FindFireball()
@@ -136,7 +192,7 @@ public class playerATK : MonoBehaviour
         cooldowntimer = 0;
 
         skillFires[FindSkill()].transform.position = skillPoint.position;
-        skillFires[FindSkill()].GetComponent<skillFire>().setDirection(Mathf.Sign(transform.localScale.x));
+        skillFires[FindSkill()].GetComponent<skillFire>().SetDirectionSkill(Mathf.Sign(transform.localScale.x));
     }
     //skillFireball
     private int FindSkill()
@@ -147,5 +203,42 @@ public class playerATK : MonoBehaviour
                 return i;
         }
         return 0;
+    }
+
+    //AR shoot rate
+    IEnumerator ShootAR()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            AtkSoundEffect.Play();
+            Atk();
+            yield return new WaitForSeconds(0.11f);
+        }
+    }
+
+    //AR time cooldown
+    public void beforeTimeAR()
+    {
+        if (!isSkillCooldown && pl.currentSwap == 2)
+        {
+            beforeShootTime = 0.5f;
+        }
+        else if(isSkillCooldown && pl.currentSwap == 2)
+        {
+            beforeShootTime = 0.25f;
+        }
+    }
+    //AR atk
+    public void shootingAR(float cooldown)
+    {
+        if (beforeShootTime <= 0f)
+        {
+            StartCoroutine(ShootAR());
+            beforeShootTime = cooldown;
+        }
+        else
+        {
+            beforeShootTime -= Time.deltaTime;
+        }
     }
 }
