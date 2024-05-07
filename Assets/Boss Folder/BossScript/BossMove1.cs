@@ -56,6 +56,13 @@ public class BossMove1 : MonoBehaviour {
                 while (timer < 4)
                 {
                     timer += Time.deltaTime;
+                    if (bossHealth != null && bossHealth.currentHealth == bossHealth.startingHealth / 2)
+                    {
+                        bossSpecial.enabled = true;
+                        enabled = false;
+                        hasActivated = true;
+                        yield break;
+                    }
                     yield return null;
                 }
                 animator.SetTrigger("Move1");
