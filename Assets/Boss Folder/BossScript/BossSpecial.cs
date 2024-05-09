@@ -126,12 +126,12 @@ public class BossSpecial : MonoBehaviour
                 
 
                 // Enable the other script
-                if (bossMove1 != null)
+                /*if (bossMove1 != null)
                 {
                     bossMove1.enabled = true;
                     enabled = false;
                     hasActivated = true;
-                }
+                }*/
             }
             hasStartedCoroutine = false;
             yield return null; // Allow the frame to update

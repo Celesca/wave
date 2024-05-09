@@ -15,10 +15,11 @@ public class BossMove1 : MonoBehaviour {
     private Animator animator;
     private bool hasActivated = false;
     private bool hasStartedCoroutine = false;
+    private BossHealth bossHealth;
 
     private void Start()
     {
-
+        bossHealth = GetComponent<BossHealth>();
     }
     private void Update()
     {
@@ -55,6 +56,13 @@ public class BossMove1 : MonoBehaviour {
                 while (timer < 4)
                 {
                     timer += Time.deltaTime;
+                    if (bossHealth != null && bossHealth.currentHealth == bossHealth.startingHealth / 2)
+                    {
+                        bossSpecial.enabled = true;
+                        enabled = false;
+                        hasActivated = true;
+                        yield break;
+                    }
                     yield return null;
                 }
                 animator.SetTrigger("Move1");
@@ -67,7 +75,13 @@ public class BossMove1 : MonoBehaviour {
 
                 hasActivated = false;
                 // Enable the other script
-                if (bossSpecial != null)
+                /*if (bossSpecial != null)
+                {
+                    bossSpecial.enabled = true;
+                    enabled = false;
+                    hasActivated = true;
+                }*/
+                if (bossHealth != null && bossHealth.currentHealth == bossHealth.startingHealth / 2)
                 {
                     bossSpecial.enabled = true;
                     enabled = false;

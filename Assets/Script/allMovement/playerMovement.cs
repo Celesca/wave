@@ -45,6 +45,9 @@ public class playerMovement : MonoBehaviour
     //Jump
     bool jump = true;
 
+    //Scale Player
+    [SerializeField] private float xyz;
+
     //For swap weapon
     public int currentSwap;
 
@@ -88,9 +91,9 @@ public class playerMovement : MonoBehaviour
 
         //flip and Change Scale
         if (horizontalInput > 0.01f)
-            transform.localScale = new Vector3(1, 1, 1);
+            transform.localScale = new Vector3(xyz, xyz, xyz);
         else if (horizontalInput < -0.01f)
-            transform.localScale = new Vector3(-1, 1, 1);
+            transform.localScale = new Vector3(xyz * -1f, xyz, xyz);
 
         if (isDashing)
             return;
@@ -251,14 +254,34 @@ public class playerMovement : MonoBehaviour
         if (currentSwap == 0)
         {
             currentSwap += 1;
-            anim.SetLayerWeight(currentSwap - 1, 0);
-            anim.SetLayerWeight(currentSwap, 1);
+            anim.SetLayerWeight(0, 0);
+            anim.SetLayerWeight(1, 1);
+            anim.SetLayerWeight(2, 0);
+            anim.SetLayerWeight(3, 0);
         }
-        else
+        else if (currentSwap == 1)
         {
-            currentSwap -= 1;
-            anim.SetLayerWeight(currentSwap + 1, 0);
-            anim.SetLayerWeight(currentSwap, 1);
+            currentSwap += 1;
+            anim.SetLayerWeight(1, 0);
+            anim.SetLayerWeight(0, 0);
+            anim.SetLayerWeight(2, 1);
+            anim.SetLayerWeight(3, 0);
+        }
+        else if (currentSwap == 2)
+        {
+            currentSwap += 1;
+            anim.SetLayerWeight(2, 0);
+            anim.SetLayerWeight(1, 0);
+            anim.SetLayerWeight(0, 0);
+            anim.SetLayerWeight(3, 1);
+        }
+        else if (currentSwap == 3)
+        {
+            currentSwap -= 3;
+            anim.SetLayerWeight(3, 0);
+            anim.SetLayerWeight(2, 0);
+            anim.SetLayerWeight(1, 0);
+            anim.SetLayerWeight(0, 0);
         }
     }
 
