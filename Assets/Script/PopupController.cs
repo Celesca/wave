@@ -12,7 +12,6 @@ public class PopupController : MonoBehaviour
         if (collision.gameObject.CompareTag("Player")) // ตรวจสอบว่าเป็นตัวละครหรือไม่
         {
             isPlayerNearby = true; // ตั้งค่าให้ผู้เล่นอยู่ใกล้ popup
-            Debug.Log("PlayerIN");
             popup.SetActive(true); // เปิด popup
         }
     }
@@ -23,7 +22,6 @@ public class PopupController : MonoBehaviour
         if (collision.gameObject.CompareTag("Player")) // ตรวจสอบว่าเป็นตัวละครหรือไม่
         {
             isPlayerNearby = false; // ตั้งค่าให้ผู้เล่นไม่อยู่ใกล้ popup อีกต่อไป
-            Debug.Log("PlayerOUT");
             popup.SetActive(false); // ปิด popup
         }
     }
