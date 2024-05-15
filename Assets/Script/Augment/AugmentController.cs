@@ -21,6 +21,7 @@ public class AugmentController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("Hello World!");
         health = GetComponent<Health>();
         move = GetComponent<playerMovement>();
         gameManager = FindObjectOfType<GameManagerScript>();
