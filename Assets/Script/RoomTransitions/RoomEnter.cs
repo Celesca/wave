@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Roommove : MonoBehaviour
+public class RoomEnter : MonoBehaviour
 {
-    public Vector2 cameraChange;
+    public Vector2 camMax;
+    public Vector2 camMin;
     public Vector3 playerChange;
     private mainCamera cam;
+    public BoxCollider2D boxCollider;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,9 +26,10 @@ public class Roommove : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            cam.maxPos = cameraChange;
-            cam.minPos = cameraChange;
+            cam.maxPos = camMax;
+            cam.minPos = camMin;
             collision.transform.position += playerChange;
+            boxCollider.isTrigger = false;
         }
     }
 }
