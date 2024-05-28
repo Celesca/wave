@@ -11,7 +11,7 @@ public class PauseMenu : MonoBehaviour
 
     void Update()
     {
-        if (optionMenuUi.active == true)
+        if (optionMenuUi.activeSelf == true)
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
@@ -26,10 +26,12 @@ public class PauseMenu : MonoBehaviour
                 if (gameIsPause)
                 {
                     Resume();
+                    Debug.Log("Resume");
                 }
                 else
                 {
                     Pause();
+                    Debug.Log("Pause");
                 }
             }
         }
