@@ -94,6 +94,8 @@ public class playerMovement : MonoBehaviour
             transform.localScale = new Vector3(xyz, xyz, xyz);
         else if (horizontalInput < -0.01f)
             transform.localScale = new Vector3(xyz * -1f, xyz, xyz);
+       
+
 
         if (isDashing)
             return;
@@ -290,5 +292,11 @@ public class playerMovement : MonoBehaviour
     public void enableDoubleJump()
     {
         isDoubleJump = true;
+    }
+
+    //New 4/11/67
+    public Vector3 GetFacingDirection()
+    {
+        return transform.localScale.x > 0 ? Vector3.right : Vector3.left;
     }
 }
