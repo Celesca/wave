@@ -19,7 +19,7 @@ public class gunFollow : MonoBehaviour
         if (player != null)
         {
             // Update the weapon's position to follow the player's position with the offset
-            transform.position = player.position + offset;
+            transform.position = player.position;
 
             // Get the player's facing direction and flip the weapon accordingly
             Vector3 facingDirection = playerMovementScript.GetFacingDirection();
