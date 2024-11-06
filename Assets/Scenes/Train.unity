@@ -802,7 +802,6 @@ Transform:
   - {fileID: 1094324063}
   - {fileID: 7036731336410222334}
   - {fileID: 1693172338}
-  - {fileID: 1638226387}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &118932621
@@ -8119,7 +8118,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1094324052}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 58354fc17ca163e46aa37135674f5e06, type: 3}
   m_Name: 
@@ -8344,7 +8343,7 @@ SpriteRenderer:
   m_SortingLayerID: -329196901
   m_SortingLayer: 3
   m_SortingOrder: 1
-  m_Sprite: {fileID: 1725981185, guid: 8e95450f6625e9c4998ad810ee6f16a4, type: 3}
+  m_Sprite: {fileID: -470096513, guid: 6a25d38823b7b4040a691895cc5ec134, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -8370,6 +8369,7 @@ Transform:
   m_Children:
   - {fileID: 1737723488}
   - {fileID: 118932622}
+  - {fileID: 1638226387}
   m_Father: {fileID: 107352535}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1094324064
@@ -12016,8 +12016,8 @@ GameObject:
   - component: {fileID: 1638226387}
   - component: {fileID: 1638226386}
   - component: {fileID: 1638226385}
-  - component: {fileID: 1638226388}
   - component: {fileID: 1638226389}
+  - component: {fileID: 1638226388}
   m_Layer: 3
   m_Name: Gun
   m_TagString: Untagged
@@ -12037,7 +12037,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ca3216c54dfeb84487727dede6d2dfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1094324063}
+  playerPoint: {fileID: 1094324063}
   offset: {x: 0, y: 0, z: 0}
 --- !u!212 &1638226386
 SpriteRenderer:
@@ -12100,11 +12100,11 @@ Transform:
   m_GameObject: {fileID: 1638226384}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.7263346, y: 10.174417, z: 0.3616472}
+  m_LocalPosition: {x: -0.002, y: -0.026, z: 0.766}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 107352535}
+  m_Father: {fileID: 1094324063}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1638226388
 Animator:
@@ -12136,11 +12136,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1638226384}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58354fc17ca163e46aa37135674f5e06, type: 3}
+  m_Script: {fileID: 11500000, guid: c199f25036f30e04e8b3c524b9b5fc91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  atkCooldown: 0
-  firepoint: {fileID: 118932622}
+  atkCooldown: 0.5
+  bulletPoint: {fileID: 118932622}
   fireballs:
   - {fileID: 7237075760672055326}
   - {fileID: 1130818943}
@@ -12173,8 +12173,8 @@ MonoBehaviour:
   - {fileID: 385041612}
   - {fileID: 1067518988}
   - {fileID: 1710099802}
-  skillAtkCooldown: 0
-  skillPoint: {fileID: 5542927730686469671}
+  skillAtkCooldown: 2
+  skillPoint: {fileID: 1737723488}
   skillFires:
   - {fileID: 1040389342}
   - {fileID: 225101498}
@@ -12206,7 +12206,8 @@ MonoBehaviour:
   - {fileID: 1514414596}
   - {fileID: 288785598}
   - {fileID: 891724608}
-  AtkSoundEffect: {fileID: 0}
+  AtkSoundEffect: {fileID: 1094324064}
+  playerMovement: {fileID: 1094324059}
   isSkillCooldown: 0
   timeSkillSMG: 5
   cooldownTimeSkillSMG: 10
