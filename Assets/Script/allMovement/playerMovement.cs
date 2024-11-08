@@ -14,7 +14,7 @@ public class playerMovement : MonoBehaviour
 
     //SoundEffect
     [SerializeField] private AudioSource JumpSoundEffect;
-    [SerializeField] private AudioSource swapWeaponSoundEffect;
+    //[SerializeField] private AudioSource swapWeaponSoundEffect;
     [SerializeField] private AudioSource DashSoundEffect;
 
     //fixUpdate for dash
@@ -143,11 +143,11 @@ public class playerMovement : MonoBehaviour
 
 
         //Swap weapon
-        if (Input.GetKeyDown(KeyCode.C))
+        /**if (Input.GetKeyDown(KeyCode.C))
         {
             swapWeaponSoundEffect.Play();
             swapWeapon();
-        }
+        }**/
 
         if (boxCollider.gameObject.tag == "Augment")
         {
@@ -251,7 +251,7 @@ public class playerMovement : MonoBehaviour
     }
 
     //swap weapon
-    void swapWeapon()
+    /**void swapWeapon()
     {
         if (currentSwap == 0)
         {
@@ -285,7 +285,7 @@ public class playerMovement : MonoBehaviour
             anim.SetLayerWeight(1, 0);
             anim.SetLayerWeight(0, 0);
         }
-    }
+    }**/
 
     /* Augment Call */
 

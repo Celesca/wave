@@ -7116,6 +7116,37 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &1014653889
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1014653890}
+  m_Layer: 3
+  m_Name: playerPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1014653890
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1014653889}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1094324063}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1040389342
 GameObject:
   m_ObjectHideFlags: 0
@@ -8118,11 +8149,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1094324052}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 58354fc17ca163e46aa37135674f5e06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  swapWeaponSoundEffect: {fileID: 1094324064}
+  playerPoint: {fileID: 1638226387}
+  gunAnim: {fileID: 1638226384}
   atkCooldown: 0.5
   firepoint: {fileID: 118932622}
   fireballs:
@@ -8195,6 +8229,7 @@ MonoBehaviour:
   timeSkillSMG: 5
   cooldownTimeSkillSMG: 10
   timeAR: 0
+  currentSwap: 0
   pl: {fileID: 1094324059}
   beforeShootTime: 0.5
 --- !u!114 &1094324059
@@ -8218,7 +8253,6 @@ MonoBehaviour:
     m_Bits: 256
   tr: {fileID: 1094324054}
   JumpSoundEffect: {fileID: 1094324064}
-  swapWeaponSoundEffect: {fileID: 1094324066}
   DashSoundEffect: {fileID: 1094324065}
   movementInput: {x: 0, y: 0}
   acceleration: 0
@@ -8369,6 +8403,7 @@ Transform:
   m_Children:
   - {fileID: 1737723488}
   - {fileID: 118932622}
+  - {fileID: 1014653890}
   - {fileID: 1638226387}
   m_Father: {fileID: 107352535}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12016,7 +12051,6 @@ GameObject:
   - component: {fileID: 1638226387}
   - component: {fileID: 1638226386}
   - component: {fileID: 1638226385}
-  - component: {fileID: 1638226389}
   - component: {fileID: 1638226388}
   m_Layer: 3
   m_Name: Gun
@@ -12039,6 +12073,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPoint: {fileID: 1094324063}
   offset: {x: 0, y: 0, z: 0}
+  playerMovementScript: {fileID: 1094324059}
 --- !u!212 &1638226386
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12100,7 +12135,7 @@ Transform:
   m_GameObject: {fileID: 1638226384}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.002, y: -0.026, z: 0.766}
+  m_LocalPosition: {x: -0.001999855, y: -0.026000023, z: 0.766}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12119,7 +12154,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: fcf69f75db30e4840951456df32dcc90, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -12127,93 +12162,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1638226389
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1638226384}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c199f25036f30e04e8b3c524b9b5fc91, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  atkCooldown: 0.5
-  bulletPoint: {fileID: 118932622}
-  fireballs:
-  - {fileID: 7237075760672055326}
-  - {fileID: 1130818943}
-  - {fileID: 820031486}
-  - {fileID: 1329239571}
-  - {fileID: 450014595}
-  - {fileID: 897106364}
-  - {fileID: 273542431}
-  - {fileID: 1247014367}
-  - {fileID: 2075826175}
-  - {fileID: 568364548}
-  - {fileID: 762246471}
-  - {fileID: 171408890}
-  - {fileID: 208330058}
-  - {fileID: 459471874}
-  - {fileID: 390465308}
-  - {fileID: 1825395415}
-  - {fileID: 204699033}
-  - {fileID: 56748327}
-  - {fileID: 1077377274}
-  - {fileID: 157104240}
-  - {fileID: 630544659}
-  - {fileID: 1521689799}
-  - {fileID: 1719003859}
-  - {fileID: 1483641152}
-  - {fileID: 2044774189}
-  - {fileID: 1975072882}
-  - {fileID: 1120898379}
-  - {fileID: 1474223671}
-  - {fileID: 385041612}
-  - {fileID: 1067518988}
-  - {fileID: 1710099802}
-  skillAtkCooldown: 2
-  skillPoint: {fileID: 1737723488}
-  skillFires:
-  - {fileID: 1040389342}
-  - {fileID: 225101498}
-  - {fileID: 1448923470}
-  - {fileID: 1841988543}
-  - {fileID: 1147274093}
-  - {fileID: 53156063}
-  - {fileID: 2117644970}
-  - {fileID: 1351561687}
-  - {fileID: 1730418002}
-  - {fileID: 1375048553}
-  - {fileID: 2107269228}
-  - {fileID: 1677364421}
-  - {fileID: 1388088190}
-  - {fileID: 2004576025}
-  - {fileID: 2081181272}
-  - {fileID: 732125830}
-  - {fileID: 325505176}
-  - {fileID: 1806436890}
-  - {fileID: 1081274691}
-  - {fileID: 311774471}
-  - {fileID: 790291714}
-  - {fileID: 319233601}
-  - {fileID: 959279885}
-  - {fileID: 2005489529}
-  - {fileID: 203817211}
-  - {fileID: 697332227}
-  - {fileID: 699201749}
-  - {fileID: 1514414596}
-  - {fileID: 288785598}
-  - {fileID: 891724608}
-  AtkSoundEffect: {fileID: 1094324064}
-  playerMovement: {fileID: 1094324059}
-  isSkillCooldown: 0
-  timeSkillSMG: 5
-  cooldownTimeSkillSMG: 10
-  timeAR: 0
-  pl: {fileID: 1094324059}
-  beforeShootTime: 0.5
 --- !u!1 &1651105239
 GameObject:
   m_ObjectHideFlags: 0
@@ -12653,7 +12601,7 @@ Transform:
   m_GameObject: {fileID: 1693172337}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.1919427, y: 14.613581, z: 0.17475994}
+  m_LocalPosition: {x: -1.1919427, y: 14.613581, z: 0.17475992}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -16368,6 +16316,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58354fc17ca163e46aa37135674f5e06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  swapWeaponSoundEffect: {fileID: 0}
+  playerPoint: {fileID: 0}
+  gunAnim: {fileID: 0}
   atkCooldown: 0.5
   firepoint: {fileID: 1882837394867177134}
   fireballs:
@@ -16392,6 +16343,7 @@ MonoBehaviour:
   timeSkillSMG: 5
   cooldownTimeSkillSMG: 10
   timeAR: 0
+  currentSwap: 0
   pl: {fileID: 0}
   beforeShootTime: 0.5
 --- !u!1 &775313330085943192
@@ -17262,7 +17214,6 @@ MonoBehaviour:
     m_Bits: 0
   tr: {fileID: 8692201183457597186}
   JumpSoundEffect: {fileID: 0}
-  swapWeaponSoundEffect: {fileID: 0}
   DashSoundEffect: {fileID: 0}
   movementInput: {x: 0, y: 0}
   acceleration: 0
