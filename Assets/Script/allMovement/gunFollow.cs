@@ -6,6 +6,8 @@ public class gunFollow : MonoBehaviour
     public Vector3 offset;        // Offset distance between the player and the weapon
     public playerMovement playerMovementScript;
 
+    public playerATK playerATK; // script playerATK
+
     Animator anim;
 
     void Awake()
@@ -19,7 +21,6 @@ public class gunFollow : MonoBehaviour
     {
         if (playerPoint != null)
         {
-
             /** Flip Anim **/
             // Get the player's facing direction and flip the weapon accordingly
             Vector3 facingDirection = playerMovementScript.GetFacingDirection();
@@ -42,9 +43,5 @@ public class gunFollow : MonoBehaviour
     {
         playerMovementScript.isGrounded();
 
-    }
-    private void pistonATK()
-    {
-        anim.SetTrigger("atk");
     }
 }

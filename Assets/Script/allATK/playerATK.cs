@@ -8,11 +8,11 @@ public class playerATK : MonoBehaviour
     [SerializeField] private Transform playerPoint;
     [SerializeField] private GameObject gunAnim;
 
-    [SerializeField] private float atkCooldown;
+    [SerializeField] public float atkCooldown;
     [SerializeField] private Transform firepoint;
     [SerializeField] private GameObject[] fireballs;
 
-    [SerializeField] private float skillAtkCooldown;
+    [SerializeField] public float skillAtkCooldown;
     [SerializeField] private Transform skillPoint;
     [SerializeField] private GameObject[] skillFires;
 
@@ -22,7 +22,7 @@ public class playerATK : MonoBehaviour
     private Animator anim;
     private playerMovement playerMovement;
 
-    private float cooldowntimer = Mathf.Infinity;
+    public float cooldowntimer = Mathf.Infinity;
 
     public bool isSkillCooldown = false;
     private float skillCooldown;

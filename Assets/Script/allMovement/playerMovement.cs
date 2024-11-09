@@ -29,7 +29,7 @@ public class playerMovement : MonoBehaviour
     public bool isCrouch = false;
 
     public BoxCollider2D boxCollider;
-    private Animator anim;
+    public Animator anim;
     private Rigidbody2D body;
 
     public bool test = false;

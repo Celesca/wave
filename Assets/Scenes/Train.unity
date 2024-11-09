@@ -8225,6 +8225,7 @@ MonoBehaviour:
   - {fileID: 288785598}
   - {fileID: 891724608}
   AtkSoundEffect: {fileID: 1094324067}
+  cooldowntimer: Infinity
   isSkillCooldown: 0
   timeSkillSMG: 5
   cooldownTimeSkillSMG: 10
@@ -8261,6 +8262,7 @@ MonoBehaviour:
   grounded: 0
   isCrouch: 0
   boxCollider: {fileID: 0}
+  anim: {fileID: 0}
   test: 0
   xyz: 1
   currentSwap: 0
@@ -12052,6 +12054,7 @@ GameObject:
   - component: {fileID: 1638226386}
   - component: {fileID: 1638226385}
   - component: {fileID: 1638226388}
+  - component: {fileID: 1638226389}
   m_Layer: 3
   m_Name: Gun
   m_TagString: Untagged
@@ -12074,6 +12077,7 @@ MonoBehaviour:
   playerPoint: {fileID: 1094324063}
   offset: {x: 0, y: 0, z: 0}
   playerMovementScript: {fileID: 1094324059}
+  playerATK: {fileID: 1094324058}
 --- !u!212 &1638226386
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12162,6 +12166,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1638226389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1638226384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c199f25036f30e04e8b3c524b9b5fc91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerMovementScript: {fileID: 1094324059}
+  playerATK: {fileID: 1094324058}
 --- !u!1 &1651105239
 GameObject:
   m_ObjectHideFlags: 0
@@ -16339,6 +16357,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   AtkSoundEffect: {fileID: 0}
+  cooldowntimer: Infinity
   isSkillCooldown: 0
   timeSkillSMG: 5
   cooldownTimeSkillSMG: 10
@@ -17222,6 +17241,7 @@ MonoBehaviour:
   grounded: 0
   isCrouch: 0
   boxCollider: {fileID: 0}
+  anim: {fileID: 0}
   test: 0
   xyz: 0
   currentSwap: 0
