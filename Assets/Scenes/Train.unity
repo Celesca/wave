@@ -265,6 +265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
+  swapGun: {fileID: 0}
   pl: {fileID: 0}
 --- !u!50 &53156066
 Rigidbody2D:
@@ -460,6 +461,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
+  swapGun: {fileID: 0}
   pl: {fileID: 0}
 --- !u!95 &56748330
 Animator:
@@ -884,6 +886,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
+  swapGun: {fileID: 0}
   pl: {fileID: 0}
 --- !u!95 &157104243
 Animator:
@@ -1079,6 +1082,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
+  swapGun: {fileID: 0}
   pl: {fileID: 0}
 --- !u!95 &171408893
 Animator:
@@ -1358,6 +1362,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
+  swapGun: {fileID: 0}
   pl: {fileID: 0}
 --- !u!50 &203817214
 Rigidbody2D:
@@ -1553,6 +1558,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
+  swapGun: {fileID: 0}
   pl: {fileID: 0}
 --- !u!95 &204699036
 Animator:
@@ -1748,6 +1754,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
+  swapGun: {fileID: 0}
   pl: {fileID: 0}
 --- !u!95 &208330061
 Animator:
@@ -1943,6 +1950,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
+  swapGun: {fileID: 0}
   pl: {fileID: 0}
 --- !u!50 &225101501
 Rigidbody2D:
@@ -2138,6 +2146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
+  swapGun: {fileID: 0}
   pl: {fileID: 0}
 --- !u!95 &273542434
 Animator:
@@ -2333,6 +2342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
+  swapGun: {fileID: 0}
   pl: {fileID: 0}
 --- !u!50 &288785601
 Rigidbody2D:
@@ -2660,6 +2670,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
+  swapGun: {fileID: 0}
   pl: {fileID: 0}
 --- !u!50 &311774474
 Rigidbody2D:
@@ -2855,6 +2866,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
+  swapGun: {fileID: 0}
   pl: {fileID: 0}
 --- !u!50 &319233604
 Rigidbody2D:
@@ -3050,6 +3062,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
+  swapGun: {fileID: 0}
   pl: {fileID: 0}
 --- !u!50 &325505179
 Rigidbody2D:
@@ -3375,6 +3388,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
+  swapGun: {fileID: 0}
   pl: {fileID: 0}
 --- !u!95 &385041615
 Animator:
@@ -3654,6 +3668,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
+  swapGun: {fileID: 0}
   pl: {fileID: 0}
 --- !u!95 &390465311
 Animator:
@@ -3997,6 +4012,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
+  swapGun: {fileID: 0}
   pl: {fileID: 0}
 --- !u!95 &450014598
 Animator:
@@ -4225,6 +4241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
+  swapGun: {fileID: 0}
   pl: {fileID: 0}
 --- !u!95 &459471877
 Animator:
@@ -4566,6 +4583,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
+  swapGun: {fileID: 0}
   pl: {fileID: 0}
 --- !u!95 &568364551
 Animator:
@@ -4927,6 +4945,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
+  swapGun: {fileID: 0}
   pl: {fileID: 0}
 --- !u!95 &630544662
 Animator:
@@ -5233,6 +5252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
+  swapGun: {fileID: 0}
   pl: {fileID: 0}
 --- !u!50 &697332230
 Rigidbody2D:
@@ -5428,6 +5448,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
+  swapGun: {fileID: 0}
   pl: {fileID: 0}
 --- !u!50 &699201752
 Rigidbody2D:
@@ -5707,6 +5728,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
+  swapGun: {fileID: 0}
   pl: {fileID: 0}
 --- !u!50 &732125833
 Rigidbody2D:
@@ -5902,6 +5924,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
+  swapGun: {fileID: 0}
   pl: {fileID: 0}
 --- !u!95 &762246474
 Animator:
@@ -6097,6 +6120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
+  swapGun: {fileID: 0}
   pl: {fileID: 0}
 --- !u!50 &790291717
 Rigidbody2D:
@@ -6292,6 +6316,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
+  swapGun: {fileID: 0}
   pl: {fileID: 0}
 --- !u!95 &820031489
 Animator:
@@ -6487,6 +6512,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
+  swapGun: {fileID: 0}
   pl: {fileID: 0}
 --- !u!50 &891724611
 Rigidbody2D:
@@ -6682,6 +6708,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
+  swapGun: {fileID: 0}
   pl: {fileID: 0}
 --- !u!95 &897106367
 Animator:
@@ -6970,6 +6997,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
+  swapGun: {fileID: 0}
   pl: {fileID: 0}
 --- !u!50 &959279888
 Rigidbody2D:
@@ -7341,6 +7369,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
+  swapGun: {fileID: 0}
   pl: {fileID: 0}
 --- !u!1 &1067518988
 GameObject:
@@ -7391,6 +7420,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
+  swapGun: {fileID: 0}
   pl: {fileID: 0}
 --- !u!95 &1067518991
 Animator:
@@ -7586,6 +7616,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
+  swapGun: {fileID: 0}
   pl: {fileID: 0}
 --- !u!95 &1077377277
 Animator:
@@ -7781,6 +7812,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
+  swapGun: {fileID: 0}
   pl: {fileID: 0}
 --- !u!50 &1081274694
 Rigidbody2D:
@@ -8155,6 +8187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swapWeaponSoundEffect: {fileID: 1094324064}
+  swapGun: {fileID: 1638226390}
   playerPoint: {fileID: 1638226387}
   gunAnim: {fileID: 1638226384}
   atkCooldown: 0.5
@@ -9042,6 +9075,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
+  swapGun: {fileID: 0}
   pl: {fileID: 0}
 --- !u!95 &1120898382
 Animator:
@@ -9237,6 +9271,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
+  swapGun: {fileID: 0}
   pl: {fileID: 0}
 --- !u!95 &1130818946
 Animator:
@@ -9432,6 +9467,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
+  swapGun: {fileID: 0}
   pl: {fileID: 0}
 --- !u!50 &1147274096
 Rigidbody2D:
@@ -9795,6 +9831,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
+  swapGun: {fileID: 0}
   pl: {fileID: 0}
 --- !u!95 &1247014370
 Animator:
@@ -9990,6 +10027,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
+  swapGun: {fileID: 0}
   pl: {fileID: 0}
 --- !u!95 &1329239574
 Animator:
@@ -10185,6 +10223,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
+  swapGun: {fileID: 0}
   pl: {fileID: 0}
 --- !u!50 &1351561690
 Rigidbody2D:
@@ -10464,6 +10503,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
+  swapGun: {fileID: 0}
   pl: {fileID: 0}
 --- !u!50 &1375048556
 Rigidbody2D:
@@ -10659,6 +10699,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
+  swapGun: {fileID: 0}
   pl: {fileID: 0}
 --- !u!50 &1388088193
 Rigidbody2D:
@@ -10902,6 +10943,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
+  swapGun: {fileID: 0}
   pl: {fileID: 0}
 --- !u!50 &1448923473
 Rigidbody2D:
@@ -11097,6 +11139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
+  swapGun: {fileID: 0}
   pl: {fileID: 0}
 --- !u!95 &1474223674
 Animator:
@@ -11292,6 +11335,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
+  swapGun: {fileID: 0}
   pl: {fileID: 0}
 --- !u!95 &1483641155
 Animator:
@@ -11487,6 +11531,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
+  swapGun: {fileID: 0}
   pl: {fileID: 0}
 --- !u!50 &1514414599
 Rigidbody2D:
@@ -11682,6 +11727,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
+  swapGun: {fileID: 0}
   pl: {fileID: 0}
 --- !u!95 &1521689802
 Animator:
@@ -12053,8 +12099,9 @@ GameObject:
   - component: {fileID: 1638226387}
   - component: {fileID: 1638226386}
   - component: {fileID: 1638226385}
-  - component: {fileID: 1638226388}
+  - component: {fileID: 1638226390}
   - component: {fileID: 1638226389}
+  - component: {fileID: 1638226388}
   m_Layer: 3
   m_Name: Gun
   m_TagString: Untagged
@@ -12078,6 +12125,9 @@ MonoBehaviour:
   offset: {x: 0, y: 0, z: 0}
   playerMovementScript: {fileID: 1094324059}
   playerATK: {fileID: 1094324058}
+  health: {fileID: 1094324053}
+  numberOfFlashes: 3
+  iFramesDuration: 2
 --- !u!212 &1638226386
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12180,6 +12230,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMovementScript: {fileID: 1094324059}
   playerATK: {fileID: 1094324058}
+--- !u!114 &1638226390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1638226384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9fe2e3ddd9b5ba4c8f757b4a9e5c7be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swapWeaponSoundEffect: {fileID: 1094324064}
+  currentSwap: 0
+  anim: {fileID: 1638226388}
+  playerMovement: {fileID: 1094324059}
 --- !u!1 &1651105239
 GameObject:
   m_ObjectHideFlags: 0
@@ -12385,6 +12451,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
+  swapGun: {fileID: 0}
   pl: {fileID: 0}
 --- !u!50 &1677364424
 Rigidbody2D:
@@ -12704,6 +12771,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
+  swapGun: {fileID: 0}
   pl: {fileID: 0}
 --- !u!95 &1710099805
 Animator:
@@ -12899,6 +12967,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
+  swapGun: {fileID: 0}
   pl: {fileID: 0}
 --- !u!95 &1719003862
 Animator:
@@ -13094,6 +13163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
+  swapGun: {fileID: 0}
   pl: {fileID: 0}
 --- !u!50 &1730418005
 Rigidbody2D:
@@ -13527,6 +13597,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
+  swapGun: {fileID: 0}
   pl: {fileID: 0}
 --- !u!50 &1806436893
 Rigidbody2D:
@@ -13722,6 +13793,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
+  swapGun: {fileID: 0}
   pl: {fileID: 0}
 --- !u!95 &1825395418
 Animator:
@@ -13917,6 +13989,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
+  swapGun: {fileID: 0}
   pl: {fileID: 0}
 --- !u!50 &1841988546
 Rigidbody2D:
@@ -14209,6 +14282,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
+  swapGun: {fileID: 0}
   pl: {fileID: 0}
 --- !u!95 &1975072885
 Animator:
@@ -14488,6 +14562,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
+  swapGun: {fileID: 0}
   pl: {fileID: 0}
 --- !u!50 &2004576028
 Rigidbody2D:
@@ -14683,6 +14758,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
+  swapGun: {fileID: 0}
   pl: {fileID: 0}
 --- !u!50 &2005489532
 Rigidbody2D:
@@ -14878,6 +14954,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
+  swapGun: {fileID: 0}
   pl: {fileID: 0}
 --- !u!95 &2044774192
 Animator:
@@ -15073,6 +15150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
+  swapGun: {fileID: 0}
   pl: {fileID: 0}
 --- !u!95 &2075826178
 Animator:
@@ -15268,6 +15346,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
+  swapGun: {fileID: 0}
   pl: {fileID: 0}
 --- !u!50 &2081181275
 Rigidbody2D:
@@ -15463,6 +15542,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
+  swapGun: {fileID: 0}
   pl: {fileID: 0}
 --- !u!50 &2107269231
 Rigidbody2D:
@@ -15658,6 +15738,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
+  swapGun: {fileID: 0}
   pl: {fileID: 0}
 --- !u!50 &2117644973
 Rigidbody2D:
@@ -16335,6 +16416,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swapWeaponSoundEffect: {fileID: 0}
+  swapGun: {fileID: 0}
   playerPoint: {fileID: 0}
   gunAnim: {fileID: 0}
   atkCooldown: 0.5
@@ -20054,6 +20136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
+  swapGun: {fileID: 0}
   pl: {fileID: 0}
 --- !u!1 &5752482419254027286
 GameObject:

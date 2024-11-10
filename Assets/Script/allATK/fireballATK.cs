@@ -9,6 +9,8 @@ public class fireballATK : MonoBehaviour
     private Animator animator;
     private BoxCollider2D boxCollider;
 
+    [SerializeField] private swapGun swapGun;
+
     public playerMovement pl;
 
     private void Awake()
@@ -35,17 +37,17 @@ public class fireballATK : MonoBehaviour
         {
             //Damage
             //Pistol
-            if (pl.currentSwap == 0)
+            if (swapGun.currentSwap == 0)
             {
                 collision.GetComponent<Health>().TakeDamage(1f);
             }
             //SMG
-            else if (pl.currentSwap == 1)
+            else if (swapGun.currentSwap == 1)
             {
                 collision.GetComponent<Health>().TakeDamage(0.5f);
             }
             //AR
-            else if (pl.currentSwap == 2)
+            else if (swapGun.currentSwap == 2)
             {
                 collision.GetComponent<Health>().TakeDamage(1f);
             }

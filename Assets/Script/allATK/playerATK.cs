@@ -4,6 +4,7 @@ using UnityEngine;
 public class playerATK : MonoBehaviour
 {
     [SerializeField] private AudioSource swapWeaponSoundEffect;
+    [SerializeField] private swapGun swapGun;
 
     [SerializeField] private Transform playerPoint;
     [SerializeField] private GameObject gunAnim;
@@ -72,12 +73,12 @@ public class playerATK : MonoBehaviour
             if (isSkillCooldown)
             {
                 //SMG
-                if (pl.currentSwap == 1)
+                if (swapGun.currentSwap == 1)
                 {
                     attckingSkill(0.2f);
                 }
                 //AR
-                else if (pl.currentSwap == 2 && beforeShootTime < cooldowntimer)
+                else if (swapGun.currentSwap == 2 && beforeShootTime < cooldowntimer)
                 {
                     StartCoroutine(ShootAR());
                 }
@@ -87,17 +88,17 @@ public class playerATK : MonoBehaviour
             else if (!isSkillCooldown)
             {
                 //Pistol
-                if (pl.currentSwap == 0)
+                if (swapGun.currentSwap == 0)
                 {
                     attckingNormal(0.1f);
                 }
                 //SMG
-                else if (pl.currentSwap == 1)
+                else if (swapGun.currentSwap == 1)
                 {
                     attckingNormal(0.2f);
                 }
                 //AR
-                else if (pl.currentSwap == 2 && beforeShootTime < cooldowntimer)
+                else if (swapGun.currentSwap == 2 && beforeShootTime < cooldowntimer)
                 {
                     StartCoroutine(ShootAR());
                 }
