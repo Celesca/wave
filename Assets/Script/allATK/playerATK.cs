@@ -59,13 +59,6 @@ public class playerATK : MonoBehaviour
         beforeTimeAR();
         showGun();
 
-        //Swap weapon
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            swapWeaponSoundEffect.Play();
-            swapWeapon();
-        }
-
         //ATK X normal and skill ATK
         if (Input.GetKey(KeyCode.X) && atkCooldown < cooldowntimer)
         {
@@ -181,7 +174,7 @@ public class playerATK : MonoBehaviour
         if (playerMovement.isGrounded())
         {
             // Update the Y-position based on crouch status
-            float newY = playerMovement.isCrouch ? y-0.3f : y+0.3f;
+            float newY = playerMovement.isCrouch ? y - 0.3f : y + 0.3f;
 
             // Set gun's position with the new Y
             playerPoint.position = new Vector3(playerPoint.position.x, newY, playerPoint.position.z);
@@ -269,43 +262,6 @@ public class playerATK : MonoBehaviour
         else
         {
             beforeShootTime -= Time.deltaTime;
-        }
-    }
-
-    //swap weapon
-    void swapWeapon()
-    {
-        if (currentSwap == 0)
-        {
-            currentSwap += 1;
-            anim.SetLayerWeight(0, 0);
-            anim.SetLayerWeight(1, 1);
-            anim.SetLayerWeight(2, 0);
-            anim.SetLayerWeight(3, 0);
-        }
-        else if (currentSwap == 1)
-        {
-            currentSwap += 1;
-            anim.SetLayerWeight(1, 0);
-            anim.SetLayerWeight(0, 0);
-            anim.SetLayerWeight(2, 1);
-            anim.SetLayerWeight(3, 0);
-        }
-        else if (currentSwap == 2)
-        {
-            currentSwap += 1;
-            anim.SetLayerWeight(2, 0);
-            anim.SetLayerWeight(1, 0);
-            anim.SetLayerWeight(0, 0);
-            anim.SetLayerWeight(3, 1);
-        }
-        else if (currentSwap == 3)
-        {
-            currentSwap -= 3;
-            anim.SetLayerWeight(3, 0);
-            anim.SetLayerWeight(2, 0);
-            anim.SetLayerWeight(1, 0);
-            anim.SetLayerWeight(0, 0);
         }
     }
 }

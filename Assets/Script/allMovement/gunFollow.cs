@@ -51,17 +51,13 @@ public class gunFollow : MonoBehaviour
                 transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
             }
 
-
-            if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space)))
+            if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space)) && playerMovementScript.isGrounded())
             {
                 anim.SetTrigger("jump");
-                isGrounded = false;
             }
-            else
+            else if(playerMovementScript.grounded == true)
             {
                 anim.ResetTrigger("jump");
-                isGrounded = true;
-
             }
             anim.SetBool("isGrounded", isGrounded);
         }
