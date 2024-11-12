@@ -39,17 +39,17 @@ public class fireballATK : MonoBehaviour
             //Pistol
             if (swapGun.currentSwap == 0)
             {
-                collision.GetComponent<Health>().TakeDamage(1f);
+                EnemyTakeDamage(collision, 1f);
             }
             //SMG
             else if (swapGun.currentSwap == 1)
             {
-                collision.GetComponent<Health>().TakeDamage(0.5f);
+                EnemyTakeDamage(collision, 0.5f);
             }
             //AR
             else if (swapGun.currentSwap == 2)
             {
-                collision.GetComponent<Health>().TakeDamage(1f);
+                EnemyTakeDamage(collision, 1f);
             }
         }
     }
@@ -71,4 +71,10 @@ public class fireballATK : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
+
+    private void EnemyTakeDamage(Collider2D collision, float damageAmount)
+    {
+        collision.GetComponent<Health>().TakeDamage(damageAmount);
+    }
+
 }

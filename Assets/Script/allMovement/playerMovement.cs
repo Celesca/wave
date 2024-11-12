@@ -196,7 +196,7 @@ public class playerMovement : MonoBehaviour
     //Crouch
     public void crouch()
     {
-        if (Input.GetKey(KeyCode.DownArrow) && (grounded == true))
+        if (Input.GetKey(KeyCode.DownArrow) && grounded)
         {
             isCrouch = true;
         }
