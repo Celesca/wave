@@ -62,12 +62,7 @@ public class gunFollow : MonoBehaviour
             anim.SetBool("isGrounded", isGrounded);
         }
     }
-
-    private void checkGround()
-    {
-        playerMovementScript.isGrounded();
-    }
-
+    
     private IEnumerator Invunerability()
     {
         Physics2D.IgnoreLayerCollision(1, 0, true); // Layer number Player and Enemy
