@@ -66,6 +66,18 @@ public class fireballATK : MonoBehaviour
         }
     }
 
+    private void HitEnemy(Collider2D collision, float damage)
+    {
+        GameObject gameObject = collision.gameObject;
+        Health enemy = gameObject.GetComponent<Health>();
+
+        if (enemy != null)
+        {
+            enemy.TakeDamage(damage);
+
+
+        }
+    }
     //Set direction of fireball(left or right)
     public void SetDirectionFireball(float _direction)
     {
@@ -89,6 +101,36 @@ public class fireballATK : MonoBehaviour
     private void EnemyTakeDamage(Collider2D collision, float damageAmount)
     {
         collision.GetComponent<Health>().TakeDamage(damageAmount);
+
+        if (isColdWater)
+        {
+            // Slow enemy
+        }
+
+        if (isToxicWater)
+        {
+            // Enemy takes 0.5 damage for 2 seconds
+        }
+
+        if (isBurnWater)
+        {
+            // Enemy take extra damages
+        }
     }
 
+    // Augment Call
+    public void ActivateColdWater()
+    {
+        isColdWater = true;
+    }
+
+    public void ActivateToxicWater()
+    {
+        isToxicWater = true;
+    }
+
+    public void ActivateBurningWater()
+    {
+        isBurnWater = true;
+    }
 }
