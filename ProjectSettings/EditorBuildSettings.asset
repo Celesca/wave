@@ -15,6 +15,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Train.unity
     guid: d321a174d59783d48a0df4b56eba3383
   - enabled: 1
-    path: Assets/Scenes/Gameplayboss.unity
+    path: Assets/Scenes/Boss.unity
     guid: bef34e3964e6081499cd7eee7fec61d9
   m_configObjects: {}

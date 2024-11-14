@@ -13,17 +13,29 @@ public class fireballATK : MonoBehaviour
 
     public playerMovement pl;
 
-    private void Awake()
+    // Augment
+    private bool isColdWater = false;
+    private bool isToxicWater = false;
+    private bool isBurnWater = false;
+
+    void Start()
     {
         animator = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
     }
+
+    private void Awake()
+    {
+
+    }
+
     private void Update()
     {
         if (hit) return;
         float movementSpeed = speed * Time.deltaTime * direction;//speed of fireball
         transform.Translate(movementSpeed, 0, 0);
     }
+
     //expoleFireball if it hit other Collider
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -53,6 +65,7 @@ public class fireballATK : MonoBehaviour
             }
         }
     }
+
     //Set direction of fireball(left or right)
     public void SetDirectionFireball(float _direction)
     {
@@ -67,6 +80,7 @@ public class fireballATK : MonoBehaviour
 
         transform.localScale = new Vector3(localScaleX, transform.localScale.y, transform.localScale.z);
     }
+
     private void Deactivte()
     {
         gameObject.SetActive(false);
