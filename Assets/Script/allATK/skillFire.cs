@@ -10,6 +10,8 @@ public class skillFire : MonoBehaviour
     private BoxCollider2D boxCollider;
     private SpriteRenderer spd;
 
+    [SerializeField] private swapGun swapGun;
+
     public playerMovement pl;
 
     private void Awake()
@@ -31,9 +33,20 @@ public class skillFire : MonoBehaviour
         boxCollider.enabled = false;
         animator.SetTrigger("exp");
 
-        if (pl.currentSwap == 1)
+        //Pistol
+        if (swapGun.currentSwap == 1)
         {
-            collision.GetComponent<Health>().TakeDamage(1);
+            EnemyTakeDamage(collision, 1f);
+        }
+        //SMG
+        if (swapGun.currentSwap == 2)
+        {
+            EnemyTakeDamage(collision, 1f);
+        }
+        //AR
+        if (swapGun.currentSwap == 3)
+        {
+            EnemyTakeDamage(collision, 1f);
         }
     }
     //Set direction of skillFire(left or right)
@@ -51,10 +64,13 @@ public class skillFire : MonoBehaviour
         {
             spd.flipX = false;
         }
-
-
-
     }
+
+    private void EnemyTakeDamage(Collider2D collision, float damageAmount)
+    {
+        collision.GetComponent<Health>().TakeDamage(damageAmount);
+    }
+
     private void Deactivte()
     {
         gameObject.SetActive(false);

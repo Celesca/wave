@@ -9,31 +9,21 @@ public class fireballATK : MonoBehaviour
     private Animator animator;
     private BoxCollider2D boxCollider;
 
+    [SerializeField] private swapGun swapGun;
+
     public playerMovement pl;
 
-    // Augment
-    private bool isColdWater = false;
-    private bool isToxicWater = false;
-    private bool isBurnWater = false;
-
-    void Start()
+    private void Awake()
     {
         animator = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
     }
-
-    private void Awake()
-    {
-
-    }
-
     private void Update()
     {
         if (hit) return;
         float movementSpeed = speed * Time.deltaTime * direction;//speed of fireball
         transform.Translate(movementSpeed, 0, 0);
     }
-
     //expoleFireball if it hit other Collider
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -47,49 +37,22 @@ public class fireballATK : MonoBehaviour
         {
             //Damage
             //Pistol
-            if (pl.currentSwap == 0)
+            if (swapGun.currentSwap == 0)
             {
-                HitEnemy(collision, 1f);
+                EnemyTakeDamage(collision, 1f);
             }
             //SMG
-            else if (pl.currentSwap == 1)
+            else if (swapGun.currentSwap == 1)
             {
-                HitEnemy(collision, 0.5f);
+                EnemyTakeDamage(collision, 0.5f);
             }
             //AR
-            else if (pl.currentSwap == 2)
+            else if (swapGun.currentSwap == 2)
             {
-                HitEnemy(collision, 1f);
+                EnemyTakeDamage(collision, 1f);
             }
         }
     }
-
-    private void HitEnemy(Collider2D collision, float damage)
-    {
-        GameObject gameObject = collision.gameObject;
-        Health enemy = gameObject.GetComponent<Health>();
-
-        if (enemy != null)
-        {
-            enemy.TakeDamage(damage);
-
-            if (isColdWater)
-            {
-                // Slow enemy
-            }
-
-            if (isToxicWater)
-            {
-                // Enemy takes 0.5 damage for 2 seconds
-            }
-
-            if (isBurnWater)
-            {
-                enemy.TakeDamage(0.5f);
-            }
-        }
-    }
-
     //Set direction of fireball(left or right)
     public void SetDirectionFireball(float _direction)
     {
@@ -104,10 +67,29 @@ public class fireballATK : MonoBehaviour
 
         transform.localScale = new Vector3(localScaleX, transform.localScale.y, transform.localScale.z);
     }
-
     private void Deactivte()
     {
         gameObject.SetActive(false);
+    }
+
+    private void EnemyTakeDamage(Collider2D collision, float damageAmount)
+    {
+        collision.GetComponent<Health>().TakeDamage(damageAmount);
+
+        if (isColdWater)
+        {
+            // Slow enemy
+        }
+
+        if (isToxicWater)
+        {
+            // Enemy takes 0.5 damage for 2 seconds
+        }
+
+        if (isBurnWater)
+        {
+            // Enemy take extra damages
+        }
     }
 
     // Augment Call
