@@ -14,6 +14,7 @@ public class playerMovement : MonoBehaviour
 
     //SoundEffect
     [SerializeField] private AudioSource JumpSoundEffect;
+    [SerializeField] private AudioSource swapWeaponSoundEffect;
     [SerializeField] private AudioSource DashSoundEffect;
 
     //fixUpdate for dash
@@ -28,7 +29,7 @@ public class playerMovement : MonoBehaviour
     public bool isCrouch = false;
 
     public BoxCollider2D boxCollider;
-    public Animator anim;
+    private Animator anim;
     private Rigidbody2D body;
 
     public bool test = false;
@@ -37,9 +38,9 @@ public class playerMovement : MonoBehaviour
     // Dash Feature
     private bool canDash = true;
     private bool isDashing = false;
-    private float dashPower = 5f;
+    private float dashPower = 70f;
     private float dashTime = 0.1f;
-    private float dashCooldown = 2f;
+    private float dashCooldown = 1f;
 
     //Jump
     bool jump = true;
@@ -71,13 +72,28 @@ public class playerMovement : MonoBehaviour
         horizontalInput = Input.GetAxis("Horizontal");
         body.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, body.velocity.y);
 
+
+
+
+        /**
+                if(horizontalInput != 0 && grounded)
+                {
+                    anim.SetBool("run", true);
+
+                    if(isCrouch) 
+                    {
+                        anim.SetBool("run", false);
+                        crouch();
+                    }
+                }
+        **/
+
+
         //flip and Change Scale
         if (horizontalInput > 0.01f)
             transform.localScale = new Vector3(xyz, xyz, xyz);
         else if (horizontalInput < -0.01f)
             transform.localScale = new Vector3(xyz * -1f, xyz, xyz);
-       
-
 
         if (isDashing)
             return;
@@ -89,8 +105,8 @@ public class playerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
         {
             Debug.Log("Dash");
-            StartCoroutine(Dash());
             DashSoundEffect.Play();
+            StartCoroutine(Dash());
         }
 
         // Jump
@@ -121,6 +137,14 @@ public class playerMovement : MonoBehaviour
                 JumpSoundEffect.Play();
                 Jump();
             }
+        }
+
+
+        //Swap weapon
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            swapWeaponSoundEffect.Play();
+            swapWeapon();
         }
 
         if (boxCollider.gameObject.tag == "Augment")
@@ -196,7 +220,7 @@ public class playerMovement : MonoBehaviour
     //Crouch
     public void crouch()
     {
-        if (Input.GetKey(KeyCode.DownArrow) && grounded)
+        if (Input.GetKey(KeyCode.DownArrow))
         {
             isCrouch = true;
         }
@@ -210,34 +234,61 @@ public class playerMovement : MonoBehaviour
     //Dash
     private IEnumerator Dash()
     {
-        DashSoundEffect.Play();
         canDash = false;
         isDashing = true;
         float originalGravity = body.gravityScale;
         body.gravityScale = 0;
-        Vector3 dashPosition = transform.position + new Vector3(transform.localScale.x * dashPower, 0f, 0f);
-        transform.position = dashPosition;
-        Debug.Log("Dash posi: " + transform.position);
+        body.velocity = new Vector2(transform.localScale.x * dashPower, 0f);
         tr.emitting = true;
         yield return new WaitForSeconds(dashTime);
-        Debug.Log("Dash");
         tr.emitting = false;
         body.gravityScale = originalGravity;
         isDashing = false;
         yield return new WaitForSeconds(dashCooldown);
-        Debug.Log("CanDash");
         canDash = true;
     }
+
+    //swap weapon
+    void swapWeapon()
+    {
+        if (currentSwap == 0)
+        {
+            currentSwap += 1;
+            anim.SetLayerWeight(0, 0);
+            anim.SetLayerWeight(1, 1);
+            anim.SetLayerWeight(2, 0);
+            anim.SetLayerWeight(3, 0);
+        }
+        else if (currentSwap == 1)
+        {
+            currentSwap += 1;
+            anim.SetLayerWeight(1, 0);
+            anim.SetLayerWeight(0, 0);
+            anim.SetLayerWeight(2, 1);
+            anim.SetLayerWeight(3, 0);
+        }
+        else if (currentSwap == 2)
+        {
+            currentSwap += 1;
+            anim.SetLayerWeight(2, 0);
+            anim.SetLayerWeight(1, 0);
+            anim.SetLayerWeight(0, 0);
+            anim.SetLayerWeight(3, 1);
+        }
+        else if (currentSwap == 3)
+        {
+            currentSwap -= 3;
+            anim.SetLayerWeight(3, 0);
+            anim.SetLayerWeight(2, 0);
+            anim.SetLayerWeight(1, 0);
+            anim.SetLayerWeight(0, 0);
+        }
+    }
+
     /* Augment Call */
 
     public void enableDoubleJump()
     {
         isDoubleJump = true;
-    }
-
-    //set direction facing
-    public Vector3 GetFacingDirection()
-    {
-        return transform.localScale.x > 0 ? Vector3.right : Vector3.left;
     }
 }
