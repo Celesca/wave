@@ -1,19 +1,13 @@
-﻿using System.Collections;
+using System.Collections;
 using UnityEngine;
 
 public class playerATK : MonoBehaviour
 {
-    [SerializeField] private AudioSource swapWeaponSoundEffect;
-    [SerializeField] private swapGun swapGun;
-
-    [SerializeField] private Transform playerPoint;
-    [SerializeField] private GameObject gunAnim;
-
-    [SerializeField] public float atkCooldown;
+    [SerializeField] private float atkCooldown;
     [SerializeField] private Transform firepoint;
     [SerializeField] private GameObject[] fireballs;
 
-    [SerializeField] public float skillAtkCooldown;
+    [SerializeField] private float skillAtkCooldown;
     [SerializeField] private Transform skillPoint;
     [SerializeField] private GameObject[] skillFires;
 
@@ -23,7 +17,7 @@ public class playerATK : MonoBehaviour
     private Animator anim;
     private playerMovement playerMovement;
 
-    public float cooldowntimer = Mathf.Infinity;
+    private float cooldowntimer = Mathf.Infinity;
 
     public bool isSkillCooldown = false;
     private float skillCooldown;
@@ -34,9 +28,6 @@ public class playerATK : MonoBehaviour
 
     public float timeAR;
 
-    //For swap weapon
-    public int currentSwap;
-
     public playerMovement pl;
 
     //cld AR 
@@ -45,6 +36,10 @@ public class playerATK : MonoBehaviour
     //tranform position Y if Crouch
     private float y = -2.26f;
 
+    private void Start()
+    {
+
+    }
     private void Awake()
     {
         anim = GetComponent<Animator>();
@@ -55,9 +50,7 @@ public class playerATK : MonoBehaviour
         //position point if crouch
         firepointPosition();
         skillpointPosition();
-        gunPosition();
         beforeTimeAR();
-        showGun();
 
         //ATK X normal and skill ATK
         if (Input.GetKey(KeyCode.X) && atkCooldown < cooldowntimer)
@@ -66,12 +59,12 @@ public class playerATK : MonoBehaviour
             if (isSkillCooldown)
             {
                 //SMG
-                if (swapGun.currentSwap == 1)
+                if (pl.currentSwap == 1)
                 {
                     attckingSkill(0.2f);
                 }
                 //AR
-                else if (swapGun.currentSwap == 2 && beforeShootTime < cooldowntimer)
+                else if (pl.currentSwap == 2 && beforeShootTime < cooldowntimer)
                 {
                     StartCoroutine(ShootAR());
                 }
@@ -81,17 +74,17 @@ public class playerATK : MonoBehaviour
             else if (!isSkillCooldown)
             {
                 //Pistol
-                if (swapGun.currentSwap == 0)
+                if (pl.currentSwap == 0)
                 {
                     attckingNormal(0.1f);
                 }
                 //SMG
-                else if (swapGun.currentSwap == 1)
+                else if (pl.currentSwap == 1)
                 {
                     attckingNormal(0.2f);
                 }
                 //AR
-                else if (swapGun.currentSwap == 2 && beforeShootTime < cooldowntimer)
+                else if (pl.currentSwap == 2 && beforeShootTime < cooldowntimer)
                 {
                     StartCoroutine(ShootAR());
                 }
@@ -126,6 +119,10 @@ public class playerATK : MonoBehaviour
             cooldownTimeSkillSMG -= Time.deltaTime;
         }
     }
+    private void FixedUpdate()
+    {
+
+    }
 
     //cld atk normal
     private void attckingNormal(float cooldownTime)
@@ -147,37 +144,25 @@ public class playerATK : MonoBehaviour
     //firepoint
     private void firepointPosition()
     {
-        if (playerMovement.isGrounded()) { 
-            // Update the Y-position based on crouch status
-            float newY = playerMovement.isCrouch ? -2.85f : y;
-
-            // Set firepoint position with the new Y
-            firepoint.position = new Vector3(firepoint.position.x, newY, firepoint.position.z);
-        }   
+        if (Input.GetKey(KeyCode.DownArrow) && playerMovement.isGrounded() && playerMovement.isCrouch)
+        {
+            firepoint.position = new Vector3(firepoint.position.x, -2.85f, firepoint.position.z);
+        }
+        else if (playerMovement.isCrouch == false && playerMovement.isGrounded())
+        {
+            firepoint.position = new Vector3(firepoint.position.x, y, firepoint.position.z);
+        }
     }
     //skillpoint
     private void skillpointPosition()
     {
-        if (playerMovement.isGrounded())
+        if (Input.GetKey(KeyCode.DownArrow) && playerMovement.isGrounded() && playerMovement.isCrouch)
         {
-            // Update the Y-position based on crouch status
-            float newY = playerMovement.isCrouch ? -2.85f : y;
-
-            // Set skillPoint position with the new Y
-            skillPoint.position = new Vector3(skillPoint.position.x, newY, skillPoint.position.z);
+            skillPoint.position = new Vector3(skillPoint.position.x, -2.85f, skillPoint.position.z);
         }
-    }
-
-    //position of gun
-    private void gunPosition()
-    {
-        if (playerMovement.isGrounded())
+        else if (playerMovement.isCrouch == false && playerMovement.isGrounded())
         {
-            // Update the Y-position based on crouch status
-            float newY = playerMovement.isCrouch ? y - 0.3f : y + 0.3f;
-
-            // Set gun's position with the new Y
-            playerPoint.position = new Vector3(playerPoint.position.x, newY, playerPoint.position.z);
+            skillPoint.position = new Vector3(skillPoint.position.x, y, skillPoint.position.z);
         }
     }
 
@@ -219,14 +204,6 @@ public class playerATK : MonoBehaviour
         }
         return 0;
     }
-
-    //Show gun Action
-    private void showGun()
-    {
-        gunAnim.transform.position = playerPoint.position;
-        Debug.Log($"ตำแหน่ง gunAnim: {gunAnim.transform.position}");
-    }
-
 
     //AR shoot rate
     IEnumerator ShootAR()
