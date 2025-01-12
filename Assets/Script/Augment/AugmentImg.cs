@@ -34,6 +34,8 @@ public class AugmentImg : MonoBehaviour
 
     public void setAllImage(int aug1, int aug2, int aug3)
     {
+        Debug.Log($"In AugmentImg receive from GameManagerScript: {aug1}, {aug2}, {aug3}");
+
         setImage(0, aug1);
         setImage(1, aug2);
         setImage(2, aug3);
@@ -41,6 +43,10 @@ public class AugmentImg : MonoBehaviour
 
     private void setImage(int index, int aug)
     {
+        Debug.Log($"Setting augment image at index: {index}, with aug value: {aug}");
+        Debug.Log($"Length of augImages array: {augImages.Length}, Length of augTexts array: {augTexts.Length}");
+
+
         if (aug >= 1 && aug <= augImages.Length)
         {
             images[index].sprite = augImages[aug - 1];

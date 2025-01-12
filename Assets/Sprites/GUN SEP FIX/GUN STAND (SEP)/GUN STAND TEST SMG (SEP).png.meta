@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ca3a7c3bde1673247922d31e0ebb77c6
+guid: 26138c8ce13cd55408f135ab447b5439
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: WALK_0
+      name: GUN STAND TEST SMG (SEP)_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c37b82928f626b946b3a29a04c654ea7
-      internalID: -1044878738
+      spriteID: a9ea11d9531836642b1cf5fc5b47a418
+      internalID: -52742464
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WALK_1
+      name: GUN STAND TEST SMG (SEP)_1
       rect:
         serializedVersion: 2
         x: 740
@@ -145,134 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e2a7083b600a21c48bf86c5aa32921ae
-      internalID: -1087002446
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: WALK_2
-      rect:
-        serializedVersion: 2
-        x: 1480
-        y: 0
-        width: 740
-        height: 325
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d1454b43c68e3b04db7d46cde449c7af
-      internalID: 1229530866
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: WALK_3
-      rect:
-        serializedVersion: 2
-        x: 2220
-        y: 0
-        width: 740
-        height: 325
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0d803be7d723d294db682c0721cb88e3
-      internalID: -493796938
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: WALK_4
-      rect:
-        serializedVersion: 2
-        x: 2960
-        y: 0
-        width: 740
-        height: 325
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a2a9356c72bc822419d06d5731b5eb1b
-      internalID: -1507877629
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: WALK_5
-      rect:
-        serializedVersion: 2
-        x: 3700
-        y: 0
-        width: 740
-        height: 325
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6f79d0e89b694344e993cd2f2a674308
-      internalID: 845609059
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: WALK_6
-      rect:
-        serializedVersion: 2
-        x: 4440
-        y: 0
-        width: 740
-        height: 325
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9c53071f70faa334c9a065050d9b5931
-      internalID: 701067342
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: WALK_7
-      rect:
-        serializedVersion: 2
-        x: 5180
-        y: 0
-        width: 740
-        height: 325
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a095172db73ef464ca940c4a2ae79b62
-      internalID: -905857321
+      spriteID: d1954b5d9272e314fb2839e2af16b60d
+      internalID: 1054188313
       vertices: []
       indices: 
       edges: []
@@ -288,14 +162,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      WALK_0: -1044878738
-      WALK_1: -1087002446
-      WALK_2: 1229530866
-      WALK_3: -493796938
-      WALK_4: -1507877629
-      WALK_5: 845609059
-      WALK_6: 701067342
-      WALK_7: -905857321
+      GUN STAND TEST SMG (SEP)_0: -52742464
+      GUN STAND TEST SMG (SEP)_1: 1054188313
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
