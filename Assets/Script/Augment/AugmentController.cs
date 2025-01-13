@@ -10,7 +10,6 @@ public class AugmentController : MonoBehaviour
     Health health;
     playerMovement move;
     GameManagerScript gameManager;
-    fireballATK gunAugment;
 
     private int aug1;
     private int aug2;
@@ -24,7 +23,6 @@ public class AugmentController : MonoBehaviour
     {
         health = GetComponent<Health>();
         move = GetComponent<playerMovement>();
-        gunAugment = GetComponent<fireballATK>();
         gameManager = FindObjectOfType<GameManagerScript>();
     }
 
@@ -159,41 +157,19 @@ public class AugmentController : MonoBehaviour
     private void coldWaterGun()
     {
         Debug.Log("Cold Water Gun");
-        if (gunAugment != null)
-        {
-            gunAugment.ActivateColdWater();
-        }
-        else
-        {
-            Debug.LogWarning("gunAugment is null. Cannot activate burning water.");
-        }
-    }
-
-    private void toxicWaterGun()
-    {
-        Debug.Log("Toxic Water Gun");
-
-        if (gunAugment != null)
-        {
-            gunAugment.ActivateToxicWater();
-        }
-        else
-        {
-            Debug.LogWarning("gunAugment is null. Cannot activate burning water.");
-        }
+        //
     }
 
     private void burningWaterGun()
     {
         Debug.Log("Burning Water Gun");
-        if (gunAugment != null)
-        {
-            gunAugment.ActivateBurningWater();
-        }
-        else
-        {
-            Debug.LogWarning("gunAugment is null. Cannot activate burning water.");
-        }
+        //
+    }
+
+    private void toxicWaterGun()
+    {
+        Debug.Log("Toxic Water Gun");
+        //
     }
 
     private void cooldownReset()

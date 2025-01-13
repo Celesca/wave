@@ -7,7 +7,7 @@ public class Health : MonoBehaviour
 {
     [Header("Health")]
     [SerializeField] private float startingHealth;
-    [SerializeField] private float armor;
+    [SerializeField] public float armor;
     public ShakeData shakeData;
     private bool isDead;
 
